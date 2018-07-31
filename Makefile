@@ -1,5 +1,5 @@
 
-NAME = ft_ping
+NAME = traceroute
 
 CC = gcc
 
