@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/19 00:51:06 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "incl/traceroute.h"
 
 char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
 
-
 static void			useage(void)
 {
 	printf("Usage:\ttraceroute [-fmpsih]\n"
-				   "\t[-f first-ttl][-m max-ttl][-p protocol]\n"
-				   "\t[-s ip address][-s interface address]\n"
-				   "\t[-q probe amount][-h help]... destination\n");
+				"\t[-f first-ttl][-m max-ttl][-p protocol]\n"
+				"\t[-s ip address][-s interface address]\n"
+				"\t[-q probe amount][-h help]... destination\n");
 	exit(SUCCESS);
 }
 
@@ -27,21 +38,18 @@ void					set_init_ttl(t_mgr *mgr, char *ttl)
 	}
 }
 
-void 				set_protocol(t_mgr *mgr, char *protocol)
+void 				set_port(t_mgr *mgr, char *port)
 {
-	struct protoent *proto;
-
-	if (!protocol)
+	if (!port)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no protocol specified\n");
 		useage();
 	}
-	if (!(proto = getprotobyname(protocol)))
+	if (!(mgr->sin.sin_port = (u_short)ft_atoi(port)))
 	{
-		dprintf(STDERR_FILENO, "traceroute: Error getprotobyname()\n");
+		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
 		exit(FAILURE);
 	}
-	mgr->proto = proto->p_proto;
 }
 
 void					set_max_ttl(t_mgr *mgr, char *ttl)
@@ -76,17 +84,20 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 
 void 				set_addr_iface(t_mgr *mgr, char *iface)
 {
+	struct in_addr	addr;
 	if (!iface)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no interface specified\n");
 		useage();
 	}
-	if (ft_getifaceaddr(iface, mgr->saddr) == FAILURE)
+	addr = ft_getifaceaddr(iface, NULL, FALSE);
+	if (addr.s_addr == 0)
 	{
 		dprintf(STDERR_FILENO, "traceroute: Can't find interface %s\n",
 				iface);
 		exit(FAILURE);
 	}
+	mgr->src.s_addr = addr.s_addr;
 }
 
 void 				set_addr(t_mgr *mgr, char *addr)
@@ -97,11 +108,11 @@ void 				set_addr(t_mgr *mgr, char *addr)
 				addr);
 		exit(FAILURE);
 	}
-	ft_strcpy(mgr->saddr, addr);
+	inet_pton(AF_INET, addr, &mgr->src);
 }
 
 void (*g_funcs[])(t_mgr *, char *) =
-		{ &set_init_ttl, &set_max_ttl, &set_protocol, &set_addr, &set_addr_iface, &set_probe_amt };
+		{ &set_init_ttl, &set_max_ttl, &set_port, &set_addr, &set_addr_iface, &set_probe_amt };
 
 int 				set_args(t_mgr *mgr, char *flag, char *setting)
 {
@@ -140,14 +151,30 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 		}
 		else if (av[i][0] != '-' || ac == 2)
 		{
-			if (ft_domtoip(av[i], mgr->daddr) == FAILURE)
+			mgr->sin.sin_addr = ft_domtoip(av[i], NULL, FALSE);
+			if (mgr->sin.sin_addr.s_addr == 0)
 			{
-				dprintf(STDERR_FILENO, "traceroute: cannot resolve %s: Unknown host\n", av[i]);
+				dprintf(STDERR_FILENO, "traceroute: cannot resolve"
+						" '%s': Unknown host\n", av[i]);
 				exit(FAILURE);
 			}
 		}
 	}
 	return (SUCCESS);
+}
+
+void				set_program_defaults(t_mgr *mgr)
+{
+	mgr->init_ttl = DEF_INIT_TTL;	/* 1 */
+	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
+	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
+	mgr->sin.sin_port = DEF_BASE_PORT;	/* 33434 */
+}
+
+void				create_sock(t_mgr *mgr)
+{
+	mgr->sock = ft_makerawsock(IPPROTO_RAW);
+	ft_sockoptraw(mgr->sock);
 }
 
 int					main(int ac, char **av)
@@ -158,6 +185,9 @@ int					main(int ac, char **av)
 		return (FAILURE);
 	if (ac == 1)
 		useage();
+	set_program_defaults(mgr);
 	parse_args(mgr, ac, av);
-
+	create_sock(mgr);
+	traceroute(mgr);
+	free(mgr);
 }
