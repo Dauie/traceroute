@@ -1662,6 +1662,114 @@ libft/src/net/ft_isaddrset.c.s:
 	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.s
 .PHONY : libft/src/net/ft_isaddrset.c.s
 
+libft/src/net/ft_makerawsock.o: libft/src/net/ft_makerawsock.c.o
+
+.PHONY : libft/src/net/ft_makerawsock.o
+
+# target to build an object file
+libft/src/net/ft_makerawsock.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o
+.PHONY : libft/src/net/ft_makerawsock.c.o
+
+libft/src/net/ft_makerawsock.i: libft/src/net/ft_makerawsock.c.i
+
+.PHONY : libft/src/net/ft_makerawsock.i
+
+# target to preprocess a source file
+libft/src/net/ft_makerawsock.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.i
+.PHONY : libft/src/net/ft_makerawsock.c.i
+
+libft/src/net/ft_makerawsock.s: libft/src/net/ft_makerawsock.c.s
+
+.PHONY : libft/src/net/ft_makerawsock.s
+
+# target to generate assembly for a file
+libft/src/net/ft_makerawsock.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.s
+.PHONY : libft/src/net/ft_makerawsock.c.s
+
+libft/src/net/ft_packet_header.o: libft/src/net/ft_packet_header.c.o
+
+.PHONY : libft/src/net/ft_packet_header.o
+
+# target to build an object file
+libft/src/net/ft_packet_header.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o
+.PHONY : libft/src/net/ft_packet_header.c.o
+
+libft/src/net/ft_packet_header.i: libft/src/net/ft_packet_header.c.i
+
+.PHONY : libft/src/net/ft_packet_header.i
+
+# target to preprocess a source file
+libft/src/net/ft_packet_header.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.i
+.PHONY : libft/src/net/ft_packet_header.c.i
+
+libft/src/net/ft_packet_header.s: libft/src/net/ft_packet_header.c.s
+
+.PHONY : libft/src/net/ft_packet_header.s
+
+# target to generate assembly for a file
+libft/src/net/ft_packet_header.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.s
+.PHONY : libft/src/net/ft_packet_header.c.s
+
+libft/src/net/ft_setsock_timeout.o: libft/src/net/ft_setsock_timeout.c.o
+
+.PHONY : libft/src/net/ft_setsock_timeout.o
+
+# target to build an object file
+libft/src/net/ft_setsock_timeout.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o
+.PHONY : libft/src/net/ft_setsock_timeout.c.o
+
+libft/src/net/ft_setsock_timeout.i: libft/src/net/ft_setsock_timeout.c.i
+
+.PHONY : libft/src/net/ft_setsock_timeout.i
+
+# target to preprocess a source file
+libft/src/net/ft_setsock_timeout.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.i
+.PHONY : libft/src/net/ft_setsock_timeout.c.i
+
+libft/src/net/ft_setsock_timeout.s: libft/src/net/ft_setsock_timeout.c.s
+
+.PHONY : libft/src/net/ft_setsock_timeout.s
+
+# target to generate assembly for a file
+libft/src/net/ft_setsock_timeout.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.s
+.PHONY : libft/src/net/ft_setsock_timeout.c.s
+
+libft/src/net/ft_sockoptraw.o: libft/src/net/ft_sockoptraw.c.o
+
+.PHONY : libft/src/net/ft_sockoptraw.o
+
+# target to build an object file
+libft/src/net/ft_sockoptraw.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o
+.PHONY : libft/src/net/ft_sockoptraw.c.o
+
+libft/src/net/ft_sockoptraw.i: libft/src/net/ft_sockoptraw.c.i
+
+.PHONY : libft/src/net/ft_sockoptraw.i
+
+# target to preprocess a source file
+libft/src/net/ft_sockoptraw.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.i
+.PHONY : libft/src/net/ft_sockoptraw.c.i
+
+libft/src/net/ft_sockoptraw.s: libft/src/net/ft_sockoptraw.c.s
+
+.PHONY : libft/src/net/ft_sockoptraw.s
+
+# target to generate assembly for a file
+libft/src/net/ft_sockoptraw.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.s
+.PHONY : libft/src/net/ft_sockoptraw.c.s
+
 libft/src/num/ft_numlen.o: libft/src/num/ft_numlen.c.o
 
 .PHONY : libft/src/num/ft_numlen.o
@@ -1688,6 +1796,33 @@ libft/src/num/ft_numlen.s: libft/src/num/ft_numlen.c.s
 libft/src/num/ft_numlen.c.s:
 	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.s
 .PHONY : libft/src/num/ft_numlen.c.s
+
+libft/src/put/ft_errorexit.o: libft/src/put/ft_errorexit.c.o
+
+.PHONY : libft/src/put/ft_errorexit.o
+
+# target to build an object file
+libft/src/put/ft_errorexit.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o
+.PHONY : libft/src/put/ft_errorexit.c.o
+
+libft/src/put/ft_errorexit.i: libft/src/put/ft_errorexit.c.i
+
+.PHONY : libft/src/put/ft_errorexit.i
+
+# target to preprocess a source file
+libft/src/put/ft_errorexit.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.i
+.PHONY : libft/src/put/ft_errorexit.c.i
+
+libft/src/put/ft_errorexit.s: libft/src/put/ft_errorexit.c.s
+
+.PHONY : libft/src/put/ft_errorexit.s
+
+# target to generate assembly for a file
+libft/src/put/ft_errorexit.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.s
+.PHONY : libft/src/put/ft_errorexit.c.s
 
 libft/src/put/ft_putchar.o: libft/src/put/ft_putchar.c.o
 
@@ -3255,6 +3390,33 @@ libft/src/tbl/ft_crafttbl.c.s:
 	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.s
 .PHONY : libft/src/tbl/ft_crafttbl.c.s
 
+libft/src/tbl/ft_getenvar.o: libft/src/tbl/ft_getenvar.c.o
+
+.PHONY : libft/src/tbl/ft_getenvar.o
+
+# target to build an object file
+libft/src/tbl/ft_getenvar.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o
+.PHONY : libft/src/tbl/ft_getenvar.c.o
+
+libft/src/tbl/ft_getenvar.i: libft/src/tbl/ft_getenvar.c.i
+
+.PHONY : libft/src/tbl/ft_getenvar.i
+
+# target to preprocess a source file
+libft/src/tbl/ft_getenvar.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.i
+.PHONY : libft/src/tbl/ft_getenvar.c.i
+
+libft/src/tbl/ft_getenvar.s: libft/src/tbl/ft_getenvar.c.s
+
+.PHONY : libft/src/tbl/ft_getenvar.s
+
+# target to generate assembly for a file
+libft/src/tbl/ft_getenvar.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.s
+.PHONY : libft/src/tbl/ft_getenvar.c.s
+
 libft/src/tbl/ft_itbllen.o: libft/src/tbl/ft_itbllen.c.o
 
 .PHONY : libft/src/tbl/ft_itbllen.o
@@ -3471,6 +3633,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/main.c.s
 .PHONY : main.c.s
 
+src/traceroute.o: src/traceroute.c.o
+
+.PHONY : src/traceroute.o
+
+# target to build an object file
+src/traceroute.c.o:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/src/traceroute.c.o
+.PHONY : src/traceroute.c.o
+
+src/traceroute.i: src/traceroute.c.i
+
+.PHONY : src/traceroute.i
+
+# target to preprocess a source file
+src/traceroute.c.i:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/src/traceroute.c.i
+.PHONY : src/traceroute.c.i
+
+src/traceroute.s: src/traceroute.c.s
+
+.PHONY : src/traceroute.s
+
+# target to generate assembly for a file
+src/traceroute.c.s:
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/src/traceroute.c.s
+.PHONY : src/traceroute.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -3651,9 +3840,24 @@ help:
 	@echo "... libft/src/net/ft_isaddrset.o"
 	@echo "... libft/src/net/ft_isaddrset.i"
 	@echo "... libft/src/net/ft_isaddrset.s"
+	@echo "... libft/src/net/ft_makerawsock.o"
+	@echo "... libft/src/net/ft_makerawsock.i"
+	@echo "... libft/src/net/ft_makerawsock.s"
+	@echo "... libft/src/net/ft_packet_header.o"
+	@echo "... libft/src/net/ft_packet_header.i"
+	@echo "... libft/src/net/ft_packet_header.s"
+	@echo "... libft/src/net/ft_setsock_timeout.o"
+	@echo "... libft/src/net/ft_setsock_timeout.i"
+	@echo "... libft/src/net/ft_setsock_timeout.s"
+	@echo "... libft/src/net/ft_sockoptraw.o"
+	@echo "... libft/src/net/ft_sockoptraw.i"
+	@echo "... libft/src/net/ft_sockoptraw.s"
 	@echo "... libft/src/num/ft_numlen.o"
 	@echo "... libft/src/num/ft_numlen.i"
 	@echo "... libft/src/num/ft_numlen.s"
+	@echo "... libft/src/put/ft_errorexit.o"
+	@echo "... libft/src/put/ft_errorexit.i"
+	@echo "... libft/src/put/ft_errorexit.s"
 	@echo "... libft/src/put/ft_putchar.o"
 	@echo "... libft/src/put/ft_putchar.i"
 	@echo "... libft/src/put/ft_putchar.s"
@@ -3828,6 +4032,9 @@ help:
 	@echo "... libft/src/tbl/ft_crafttbl.o"
 	@echo "... libft/src/tbl/ft_crafttbl.i"
 	@echo "... libft/src/tbl/ft_crafttbl.s"
+	@echo "... libft/src/tbl/ft_getenvar.o"
+	@echo "... libft/src/tbl/ft_getenvar.i"
+	@echo "... libft/src/tbl/ft_getenvar.s"
 	@echo "... libft/src/tbl/ft_itbllen.o"
 	@echo "... libft/src/tbl/ft_itbllen.i"
 	@echo "... libft/src/tbl/ft_itbllen.s"
@@ -3852,6 +4059,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/traceroute.o"
+	@echo "... src/traceroute.i"
+	@echo "... src/traceroute.s"
 .PHONY : help
 
 

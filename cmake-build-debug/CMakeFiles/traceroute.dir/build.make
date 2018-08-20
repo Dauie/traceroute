@@ -1425,9 +1425,105 @@ CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.o.provides: CMakeFiles/tr
 CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.o
 
 
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o: ../libft/src/net/ft_makerawsock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_makerawsock.c
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_makerawsock.c > CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.i
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_makerawsock.c -o CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.s
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.requires
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.provides: CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.provides
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o
+
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o: ../libft/src/net/ft_packet_header.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_packet_header.c
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_packet_header.c > CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.i
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_packet_header.c -o CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.s
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.requires
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.provides: CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.provides
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o
+
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o: ../libft/src/net/ft_setsock_timeout.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_setsock_timeout.c
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_setsock_timeout.c > CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.i
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_setsock_timeout.c -o CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.s
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.requires
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.provides: CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.provides
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o
+
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o: ../libft/src/net/ft_sockoptraw.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_sockoptraw.c
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_sockoptraw.c > CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.i
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/libft/src/net/ft_sockoptraw.c -o CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.s
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.requires
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.provides: CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.provides
+
+CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o
+
+
 CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o: ../libft/src/num/ft_numlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/num/ft_numlen.c
 
 CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.i: cmake_force
@@ -1449,9 +1545,33 @@ CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o.provides: CMakeFiles/trace
 CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o
 
 
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o: ../libft/src/put/ft_errorexit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_errorexit.c
+
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_errorexit.c > CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.i
+
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_errorexit.c -o CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.s
+
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.requires
+
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.provides: CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.provides
+
+CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o
+
+
 CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o: ../libft/src/put/ft_putchar.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putchar.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.i: cmake_force
@@ -1475,7 +1595,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o: ../libft/src/put/ft_putchar_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putchar_fd.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.i: cmake_force
@@ -1499,7 +1619,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o: ../libft/src/put/ft_putclst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putclst.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.i: cmake_force
@@ -1523,7 +1643,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.o: ../libft/src/put/ft_putendl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putendl.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.i: cmake_force
@@ -1547,7 +1667,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putendl.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.o: ../libft/src/put/ft_putendl_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putendl_fd.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.i: cmake_force
@@ -1571,7 +1691,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putendl_fd.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.o: ../libft/src/put/ft_puterror.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_puterror.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.i: cmake_force
@@ -1595,7 +1715,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_puterror.c.o.provides.build: CMakeFil
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.o: ../libft/src/put/ft_putnbr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putnbr.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.i: cmake_force
@@ -1619,7 +1739,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.o: ../libft/src/put/ft_putnbr_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putnbr_fd.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.i: cmake_force
@@ -1643,7 +1763,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putnbr_fd.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.o: ../libft/src/put/ft_putnlst.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putnlst.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.i: cmake_force
@@ -1667,7 +1787,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putnlst.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.o: ../libft/src/put/ft_putstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putstr.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.i: cmake_force
@@ -1691,7 +1811,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putstr.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.o: ../libft/src/put/ft_putstr_fd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putstr_fd.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.i: cmake_force
@@ -1715,7 +1835,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putstr_fd.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.o: ../libft/src/put/ft_putstrrev.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_putstrrev.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.i: cmake_force
@@ -1739,7 +1859,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_putstrrev.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.o: ../libft/src/put/ft_puttbl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/put/ft_puttbl.c
 
 CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.i: cmake_force
@@ -1763,7 +1883,7 @@ CMakeFiles/traceroute.dir/libft/src/put/ft_puttbl.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.o: ../libft/src/str/ft_cntbnespc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_cntbnespc.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.i: cmake_force
@@ -1787,7 +1907,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_cntbnespc.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.o: ../libft/src/str/ft_cntbspc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_cntbspc.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.i: cmake_force
@@ -1811,7 +1931,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_cntbspc.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.o: ../libft/src/str/ft_cnttotspc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_cnttotspc.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.i: cmake_force
@@ -1835,7 +1955,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_cnttotspc.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.o: ../libft/src/str/ft_cntwrds.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_cntwrds.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.i: cmake_force
@@ -1859,7 +1979,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_cntwrds.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.o: ../libft/src/str/ft_dirjoin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_dirjoin.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.i: cmake_force
@@ -1883,7 +2003,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_dirjoin.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.o: ../libft/src/str/ft_isstralnum.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_isstralnum.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.i: cmake_force
@@ -1907,7 +2027,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_isstralnum.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.o: ../libft/src/str/ft_isstralpha.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_isstralpha.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.i: cmake_force
@@ -1931,7 +2051,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_isstralpha.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.o: ../libft/src/str/ft_isstrascii.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_isstrascii.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.i: cmake_force
@@ -1955,7 +2075,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_isstrascii.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.o: ../libft/src/str/ft_isstrdigit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_isstrdigit.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.i: cmake_force
@@ -1979,7 +2099,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_isstrdigit.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.o: ../libft/src/str/ft_isstrprint.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_isstrprint.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.i: cmake_force
@@ -2003,7 +2123,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_isstrprint.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.o: ../libft/src/str/ft_nxtwrdlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_nxtwrdlen.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.i: cmake_force
@@ -2027,7 +2147,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_nxtwrdlen.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.o: ../libft/src/str/ft_strcat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strcat.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.i: cmake_force
@@ -2051,7 +2171,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strcat.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.o: ../libft/src/str/ft_strchr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strchr.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.i: cmake_force
@@ -2075,7 +2195,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strchr.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.o: ../libft/src/str/ft_strclr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strclr.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.i: cmake_force
@@ -2099,7 +2219,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strclr.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.o: ../libft/src/str/ft_strcmp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strcmp.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.i: cmake_force
@@ -2123,7 +2243,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strcmp.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.o: ../libft/src/str/ft_strconcat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strconcat.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.i: cmake_force
@@ -2147,7 +2267,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strconcat.c.o.provides.build: CMakeFi
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.o: ../libft/src/str/ft_strcpy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strcpy.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.i: cmake_force
@@ -2171,7 +2291,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strcpy.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.o: ../libft/src/str/ft_strdel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strdel.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.i: cmake_force
@@ -2195,7 +2315,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strdel.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.o: ../libft/src/str/ft_strdup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strdup.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.i: cmake_force
@@ -2219,7 +2339,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strdup.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.o: ../libft/src/str/ft_strequ.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strequ.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.i: cmake_force
@@ -2243,7 +2363,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strequ.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.o: ../libft/src/str/ft_striter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_striter.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.i: cmake_force
@@ -2267,7 +2387,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_striter.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.o: ../libft/src/str/ft_striteri.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_striteri.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.i: cmake_force
@@ -2291,7 +2411,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_striteri.c.o.provides.build: CMakeFil
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.o: ../libft/src/str/ft_strjoin.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strjoin.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.i: cmake_force
@@ -2315,7 +2435,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strjoin.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.o: ../libft/src/str/ft_strjoinn.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strjoinn.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.i: cmake_force
@@ -2339,7 +2459,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strjoinn.c.o.provides.build: CMakeFil
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.o: ../libft/src/str/ft_strlcat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strlcat.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.i: cmake_force
@@ -2363,7 +2483,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strlcat.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.o: ../libft/src/str/ft_strlen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strlen.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.i: cmake_force
@@ -2387,7 +2507,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strlen.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.o: ../libft/src/str/ft_strmap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strmap.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.i: cmake_force
@@ -2411,7 +2531,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strmap.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.o: ../libft/src/str/ft_strmapi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strmapi.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.i: cmake_force
@@ -2435,7 +2555,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strmapi.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.o: ../libft/src/str/ft_strncat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strncat.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.i: cmake_force
@@ -2459,7 +2579,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strncat.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.o: ../libft/src/str/ft_strncmp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strncmp.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.i: cmake_force
@@ -2483,7 +2603,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strncmp.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.o: ../libft/src/str/ft_strncpy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strncpy.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.i: cmake_force
@@ -2507,7 +2627,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strncpy.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.o: ../libft/src/str/ft_strndup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strndup.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.i: cmake_force
@@ -2531,7 +2651,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strndup.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.o: ../libft/src/str/ft_strnequ.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strnequ.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.i: cmake_force
@@ -2555,7 +2675,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strnequ.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.o: ../libft/src/str/ft_strnew.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strnew.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.i: cmake_force
@@ -2579,7 +2699,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strnew.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.o: ../libft/src/str/ft_strnstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strnstr.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.i: cmake_force
@@ -2603,7 +2723,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strnstr.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.o: ../libft/src/str/ft_strrchr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strrchr.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.i: cmake_force
@@ -2627,7 +2747,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strrchr.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.o: ../libft/src/str/ft_strrev.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strrev.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.i: cmake_force
@@ -2651,7 +2771,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strrev.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.o: ../libft/src/str/ft_strsplit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strsplit.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.i: cmake_force
@@ -2675,7 +2795,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strsplit.c.o.provides.build: CMakeFil
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.o: ../libft/src/str/ft_strstr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strstr.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.i: cmake_force
@@ -2699,7 +2819,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strstr.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.o: ../libft/src/str/ft_strstrip.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strstrip.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.i: cmake_force
@@ -2723,7 +2843,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strstrip.c.o.provides.build: CMakeFil
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.o: ../libft/src/str/ft_strsub.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strsub.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.i: cmake_force
@@ -2747,7 +2867,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strsub.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o: ../libft/src/str/ft_strtrim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_strtrim.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.i: cmake_force
@@ -2771,7 +2891,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o: ../libft/src/str/ft_tolower.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_tolower.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.i: cmake_force
@@ -2795,7 +2915,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o: ../libft/src/str/ft_toupper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/str/ft_toupper.c
 
 CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.i: cmake_force
@@ -2819,7 +2939,7 @@ CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o: ../libft/src/tbl/ft_crafttbl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_crafttbl.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.i: cmake_force
@@ -2841,9 +2961,33 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o.provides: CMakeFiles/tra
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o
 
 
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o: ../libft/src/tbl/ft_getenvar.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_getenvar.c
+
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_getenvar.c > CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.i
+
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_getenvar.c -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.s
+
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.requires
+
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.provides: CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.provides
+
+CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o
+
+
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o: ../libft/src/tbl/ft_itbllen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_itbllen.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.i: cmake_force
@@ -2867,7 +3011,7 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o: ../libft/src/tbl/ft_tbladdl.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_tbladdl.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.i: cmake_force
@@ -2891,7 +3035,7 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o.provides.build: CMakeFile
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o: ../libft/src/tbl/ft_tbldel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_tbldel.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.i: cmake_force
@@ -2915,7 +3059,7 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o: ../libft/src/tbl/ft_tbldup.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_tbldup.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.i: cmake_force
@@ -2939,7 +3083,7 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o: ../libft/src/tbl/ft_tbllen.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_tbllen.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.i: cmake_force
@@ -2963,7 +3107,7 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o.provides.build: CMakeFiles
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o: ../libft/src/tbl/ft_tblrepline.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_tblrepline.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.i: cmake_force
@@ -2987,7 +3131,7 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o.provides.build: CMakeF
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o: ../libft/src/tbl/ft_tblrmline.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building C object CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o   -c /nfs/2016/r/rlutt/code/traceroute/libft/src/tbl/ft_tblrmline.c
 
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.i: cmake_force
@@ -3009,9 +3153,33 @@ CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o.provides: CMakeFiles/tr
 CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o.provides.build: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o
 
 
+CMakeFiles/traceroute.dir/src/traceroute.c.o: CMakeFiles/traceroute.dir/flags.make
+CMakeFiles/traceroute.dir/src/traceroute.c.o: ../src/traceroute.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building C object CMakeFiles/traceroute.dir/src/traceroute.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/src/traceroute.c.o   -c /nfs/2016/r/rlutt/code/traceroute/src/traceroute.c
+
+CMakeFiles/traceroute.dir/src/traceroute.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/traceroute.dir/src/traceroute.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /nfs/2016/r/rlutt/code/traceroute/src/traceroute.c > CMakeFiles/traceroute.dir/src/traceroute.c.i
+
+CMakeFiles/traceroute.dir/src/traceroute.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/traceroute.dir/src/traceroute.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /nfs/2016/r/rlutt/code/traceroute/src/traceroute.c -o CMakeFiles/traceroute.dir/src/traceroute.c.s
+
+CMakeFiles/traceroute.dir/src/traceroute.c.o.requires:
+
+.PHONY : CMakeFiles/traceroute.dir/src/traceroute.c.o.requires
+
+CMakeFiles/traceroute.dir/src/traceroute.c.o.provides: CMakeFiles/traceroute.dir/src/traceroute.c.o.requires
+	$(MAKE) -f CMakeFiles/traceroute.dir/build.make CMakeFiles/traceroute.dir/src/traceroute.c.o.provides.build
+.PHONY : CMakeFiles/traceroute.dir/src/traceroute.c.o.provides
+
+CMakeFiles/traceroute.dir/src/traceroute.c.o.provides.build: CMakeFiles/traceroute.dir/src/traceroute.c.o
+
+
 CMakeFiles/traceroute.dir/main.c.o: CMakeFiles/traceroute.dir/flags.make
 CMakeFiles/traceroute.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building C object CMakeFiles/traceroute.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building C object CMakeFiles/traceroute.dir/main.c.o"
 	/Library/Developer/CommandLineTools/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/traceroute.dir/main.c.o   -c /nfs/2016/r/rlutt/code/traceroute/main.c
 
 CMakeFiles/traceroute.dir/main.c.i: cmake_force
@@ -3092,7 +3260,12 @@ traceroute_OBJECTS = \
 "CMakeFiles/traceroute.dir/libft/src/net/ft_gethstaddr.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/net/ft_getifaceaddr.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.o" \
+"CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o" \
+"CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o" \
+"CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o" \
+"CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o" \
+"CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o" \
@@ -3151,6 +3324,7 @@ traceroute_OBJECTS = \
 "CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o" \
+"CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o" \
@@ -3158,6 +3332,7 @@ traceroute_OBJECTS = \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o" \
 "CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o" \
+"CMakeFiles/traceroute.dir/src/traceroute.c.o" \
 "CMakeFiles/traceroute.dir/main.c.o"
 
 # External object files for target traceroute
@@ -3220,7 +3395,12 @@ traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_domtoip.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_gethstaddr.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_getifaceaddr.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.o
+traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o
+traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o
+traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o
+traceroute: CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o
+traceroute: CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o
@@ -3279,6 +3459,7 @@ traceroute: CMakeFiles/traceroute.dir/libft/src/str/ft_strtrim.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o
+traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o
@@ -3286,10 +3467,11 @@ traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldup.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o
 traceroute: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o
+traceroute: CMakeFiles/traceroute.dir/src/traceroute.c.o
 traceroute: CMakeFiles/traceroute.dir/main.c.o
 traceroute: CMakeFiles/traceroute.dir/build.make
 traceroute: CMakeFiles/traceroute.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Linking C executable traceroute"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/nfs/2016/r/rlutt/code/traceroute/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Linking C executable traceroute"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/traceroute.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -3354,7 +3536,12 @@ CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_d
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_gethstaddr.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_getifaceaddr.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_isaddrset.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_makerawsock.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_packet_header.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_setsock_timeout.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/net/ft_sockoptraw.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/num/ft_numlen.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/put/ft_errorexit.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/put/ft_putchar.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/put/ft_putchar_fd.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/put/ft_putclst.c.o.requires
@@ -3413,6 +3600,7 @@ CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/str/ft_s
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/str/ft_tolower.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/str/ft_toupper.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_crafttbl.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_getenvar.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_itbllen.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbladdl.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbldel.c.o.requires
@@ -3420,6 +3608,7 @@ CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_t
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tbllen.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrepline.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/libft/src/tbl/ft_tblrmline.c.o.requires
+CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/src/traceroute.c.o.requires
 CMakeFiles/traceroute.dir/requires: CMakeFiles/traceroute.dir/main.c.o.requires
 
 .PHONY : CMakeFiles/traceroute.dir/requires

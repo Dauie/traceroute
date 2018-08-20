@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 #include "../libft/incl/net.h"
+#include "../libft/incl/ping.h"
 #include "../libft/incl/cnvrsn.h"
 
 # define OPTLEN (6)

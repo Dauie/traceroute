@@ -81,6 +81,7 @@ set(SOURCE_FILES
 		libft/src/net/ft_setsock_timeout.c
 		libft/src/net/ft_sockoptraw.c
 		libft/src/num/ft_numlen.c
+		libft/src/put/ft_errorexit.c
 		libft/src/put/ft_putchar.c
 		libft/src/put/ft_putchar_fd.c
 		libft/src/put/ft_putclst.c
@@ -140,7 +141,7 @@ set(SOURCE_FILES
 		libft/src/str/ft_toupper.c
 		libft/src/tbl/ft_crafttbl.c
 		libft/src/tbl/ft_getenvar.c
-		libft/src/tbl/ft_itbllen.c
+    libft/src/tbl/ft_itbllen.c
     libft/src/tbl/ft_tbladdl.c
     libft/src/tbl/ft_tbldel.c
     libft/src/tbl/ft_tbldup.c

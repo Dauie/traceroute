@@ -30,6 +30,5 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
-		$(RM) libft_malloc.so
 
 re: fclean $(NAME)

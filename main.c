@@ -84,20 +84,20 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 
 void 				set_addr_iface(t_mgr *mgr, char *iface)
 {
-	struct in_addr	addr;
+	struct in_addr	*addr;
 	if (!iface)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no interface specified\n");
 		useage();
 	}
-	addr = ft_getifaceaddr(iface, NULL, FALSE);
-	if (addr.s_addr == 0)
+	if (!(addr = ft_getifaceaddr(iface, NULL, FALSE)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: Can't find interface %s\n",
 				iface);
 		exit(FAILURE);
 	}
-	mgr->src.s_addr = addr.s_addr;
+	mgr->src.s_addr = addr->s_addr;
+	free(addr);
 }
 
 void 				set_addr(t_mgr *mgr, char *addr)
@@ -138,6 +138,7 @@ int 				set_args(t_mgr *mgr, char *flag, char *setting)
 int					parse_args(t_mgr *mgr, int ac, char **av)
 {
 	int i;
+	struct in_addr *addr;
 
 	i = 0;
 	while (++i < ac)
@@ -151,13 +152,14 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 		}
 		else if (av[i][0] != '-' || ac == 2)
 		{
-			mgr->sin.sin_addr = ft_domtoip(av[i], NULL, FALSE);
-			if (mgr->sin.sin_addr.s_addr == 0)
+			if (!(addr = ft_domtoip(av[i], NULL, FALSE)))
 			{
 				dprintf(STDERR_FILENO, "traceroute: cannot resolve"
 						" '%s': Unknown host\n", av[i]);
 				exit(FAILURE);
 			}
+			mgr->sin.sin_addr.s_addr = addr->s_addr;
+			free(addr);
 		}
 	}
 	return (SUCCESS);
