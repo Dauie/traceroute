@@ -59,5 +59,6 @@ typedef struct			s_manager
 	struct in_addr		src;
 }						t_mgr;
 
+int				traceroute(t_mgr *mgr);
 
 #endif

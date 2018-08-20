@@ -15,7 +15,7 @@ LIBFT = ./libft/libftprintf.a
 
 MAIN = main.c
 
-SRC =
+SRC = traceroute.c
 
 SRCFILES = $(addprefix $(SRCDIR)/, $(SRC))
 
