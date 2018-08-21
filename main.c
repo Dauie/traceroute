@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 12:47:20 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 13:04:46 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ void 				set_port(t_mgr *mgr, char *port)
 		dprintf(STDERR_FILENO, "traceroute: no protocol specified\n");
 		useage();
 	}
-	if (!(mgr->sin.sin_port = (u_short)ft_atoi(port)))
+	if (!(mgr->to.sin_port = (ushort)ft_atoi(port)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
 		exit(FAILURE);
 	}
+	mgr->from.sin_port = mgr->from.sin_port;
 }
 
 void					set_max_ttl(t_mgr *mgr, char *ttl)
@@ -85,6 +86,7 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 void 				set_addr_iface(t_mgr *mgr, char *iface)
 {
 	struct in_addr	*addr;
+
 	if (!iface)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no interface specified\n");
@@ -96,7 +98,7 @@ void 				set_addr_iface(t_mgr *mgr, char *iface)
 				iface);
 		exit(FAILURE);
 	}
-	mgr->src.s_addr = addr->s_addr;
+	mgr->from.sin_addr = *addr;
 	free(addr);
 }
 
@@ -108,7 +110,7 @@ void 				set_addr(t_mgr *mgr, char *addr)
 				addr);
 		exit(FAILURE);
 	}
-	inet_pton(AF_INET, addr, &mgr->src);
+	inet_pton(AF_INET, addr, &mgr->from.sin_addr);
 }
 
 void (*g_funcs[])(t_mgr *, char *) =
@@ -158,7 +160,7 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 						" '%s': Unknown host\n", av[i]);
 				exit(FAILURE);
 			}
-			mgr->sin.sin_addr.s_addr = addr->s_addr;
+			mgr->to.sin_addr.s_addr = addr->s_addr;
 			free(addr);
 		}
 	}
@@ -167,16 +169,25 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 
 void				set_program_defaults(t_mgr *mgr)
 {
+	mgr->flags.run = TRUE;
 	mgr->init_ttl = DEF_INIT_TTL;	/* 1 */
 	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
 	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
-	mgr->sin.sin_port = DEF_BASE_PORT;	/* 33434 */
+	mgr->from.sin_port = DEF_BASE_PORT;	/* 33434 */
+	mgr->to.sin_port = DEF_BASE_PORT;
+	mgr->from.sin_family = AF_INET;
+	mgr->to.sin_family = AF_INET;
 }
 
 void				create_sock(t_mgr *mgr)
 {
 	mgr->sock = ft_makerawsock(IPPROTO_RAW);
 	ft_sockoptraw(mgr->sock);
+	if (bind(mgr->sock, (struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
+	{
+		dprintf(STDERR_FILENO, "Error bind().\n");
+		exit(FAILURE);
+	}
 }
 
 int					main(int ac, char **av)

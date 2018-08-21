@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 12:37:35 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/20 16:48:29 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ static void				fill_packet(t_mgr *mgr, t_echopkt *msg, int8_t *packet)
 
 int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
 {
-	if (sendto(mgr->sock, pkt, pktlen, 0, (struct sockaddr *)&mgr->sin,
-			   sizeof(struct sockaddr)) < 0)
+	if (sendto(mgr->sock, pkt, pktlen, 0, (struct sockaddr *)&mgr->to, sizeof(struct sockaddr)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error sendto().\n");
 		exit(FAILURE);
@@ -84,7 +83,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	}
 	else if (ret > 0 && FD_ISSET(mgr->sock, readfds))
 	{
-		if (recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0, (struct sockaddr *)&mgr->sin, &socklen) < 0)
+		if (recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
 			exit(FAILURE);
@@ -94,12 +93,13 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	return (SUCCESS);
 }
 
-int							handle_response(int8_t *resp_buff, t_echopkt *msg)
+int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
 {
 	char 					ipstr[INET_ADDRSTRLEN];
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
+	printf("Echo recvd\n");
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
 	{
@@ -118,9 +118,11 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 
 	FD_ZERO(&readfds);
 	FD_SET(mgr->sock, &readfds);
+	printf("Starting ping loop: \n");
 	while (mgr->flags.run == TRUE)
 	{
 		send_echo(mgr, pkt, pktlen);
+		printf("Echo sent.\n");
 		if (recv_echo(mgr, msg, resp_buff, &readfds ) == SUCCESS)
 			handle_response(resp_buff, msg);
 	}
@@ -135,8 +137,8 @@ int 			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
 	ft_setip_hdr(&msg->iphdr, mgr->init_ttl,
 				 mgr->flags.icmp ? IPPROTO_ICMP : IPPROTO_UDP, msg->datalen);
 	mgr->flags.icmp == TRUE ? ft_seticmp_hdr(&msg->phdr.icmp, 1, getpid()) :
-	ft_setudp_hdr(&msg->phdr.udp, mgr->sin.sin_port, msg->datalen);
-	ft_setip_dstsrc(&msg->iphdr, NULL, &mgr->src);
+	ft_setudp_hdr(&msg->phdr.udp, mgr->to.sin_port, msg->datalen);
+	ft_setip_dstsrc(&msg->iphdr,  &mgr->from.sin_addr, &mgr->to.sin_addr);
 	return (SUCCESS);
 }
 
@@ -146,11 +148,13 @@ int				traceroute(t_mgr *mgr)
 	size_t		pktlen;
 	t_echopkt	msg;
 
+	printf("traceroute initialization: ");
 	ft_memset(pkt, 0, IP_MAXPACKET);
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);
 	fill_packet(mgr, &msg, pkt);
 	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
+	printf("done.\n");
 	ping_loop(mgr, &msg, pkt, pktlen);
 	free(msg.data);
 	return (SUCCESS);
