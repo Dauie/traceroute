@@ -55,8 +55,8 @@ typedef struct			s_manager
 	int					max_ttl;
 	int					nprobes;
 	int 				sock;
-	struct sockaddr_in	sin;
-	struct in_addr		src;
+	struct sockaddr_in	from;
+	struct sockaddr_in	to;
 }						t_mgr;
 
 int				traceroute(t_mgr *mgr);
