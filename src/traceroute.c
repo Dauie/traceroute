@@ -153,7 +153,8 @@ int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
 		inet_ntop(AF_INET, &resp_addr, ipstr, INET_ADDRSTRLEN);
 		printf("\n%s", ipstr);
 	}
-	printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
+	(void)msg;
+	//printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
 	prev_resp_addr = resp_addr;
 	return (SUCCESS);
 }
