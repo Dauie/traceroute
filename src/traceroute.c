@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/20 16:48:29 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 13:07:03 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 
 	timeout.tv_sec = 5;
 	timeout.tv_usec = 0;
-	ft_memset(resp_buff, 0, IP_MAXPACKET);
+
 	socklen = sizeof(struct sockaddr);
 	ret = select(mgr->sock + 1, readfds, NULL, NULL, &timeout);
 	if (ret < 0)
@@ -99,7 +99,6 @@ int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
-	printf("Echo recvd\n");
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
 	{
@@ -122,7 +121,7 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	while (mgr->flags.run == TRUE)
 	{
 		send_echo(mgr, pkt, pktlen);
-		printf("Echo sent.\n");
+		ft_memset(resp_buff, 0, IP_MAXPACKET);
 		if (recv_echo(mgr, msg, resp_buff, &readfds ) == SUCCESS)
 			handle_response(resp_buff, msg);
 	}
