@@ -62,6 +62,7 @@ int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
 		dprintf(STDERR_FILENO, "Error sendto().\n");
 		exit(FAILURE);
 	}
+	printf("Sent msg\n");
 	return (SUCCESS);
 }
 
@@ -78,11 +79,12 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	ret = select(mgr->sock + 1, readfds, NULL, NULL, &timeout);
 	if (ret < 0)
 	{
-		printf("*");
+		printf("*\n");
 		return (FAILURE);
 	}
 	else if (ret > 0 && FD_ISSET(mgr->sock, readfds))
 	{
+		printf("Recv msg\n");
 		if (recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
@@ -100,12 +102,15 @@ int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
 	static struct in_addr	prev_resp_addr;
 
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
+	printf("resp_addr %ld", (long)resp_addr.s_addr);
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
 	{
+		printf("Printing address\n");
 		inet_ntop(AF_INET, &resp_addr, ipstr, INET_ADDRSTRLEN);
 		printf("\n%s", ipstr);
 	}
-	printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
+	(void)msg;
+	//printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
 	prev_resp_addr = resp_addr;
 	return (SUCCESS);
 }

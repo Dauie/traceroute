@@ -1,5 +1,5 @@
 
-NAME = traceroute
+NAME = ft_traceroute
 
 CC = gcc
 
