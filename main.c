@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/19 00:51:06 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 12:47:20 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,7 @@ int					main(int ac, char **av)
 		return (FAILURE);
 	if (ac == 1)
 		useage();
+	mgr->flags.run = TRUE;
 	set_program_defaults(mgr);
 	parse_args(mgr, ac, av);
 	create_sock(mgr);

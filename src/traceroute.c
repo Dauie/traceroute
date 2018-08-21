@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/20 16:48:29 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 12:37:35 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
 
 int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfds)
 {
+	int					ret;
 	struct timeval		timeout;
 	socklen_t			socklen;
 
@@ -75,31 +76,35 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	timeout.tv_usec = 0;
 	ft_memset(resp_buff, 0, IP_MAXPACKET);
 	socklen = sizeof(struct sockaddr);
-	if ((select(mgr->sock + 1, readfds, NULL, NULL, &timeout)) == 0)
+	ret = select(mgr->sock + 1, readfds, NULL, NULL, &timeout);
+	if (ret < 0)
 	{
 		printf("*");
 		return (FAILURE);
 	}
-	if (recvfrom(mgr->sock,resp_buff,IP_MAXPACKET,0, (struct sockaddr *)&mgr->sin, &socklen) < 0)
+	else if (ret > 0 && FD_ISSET(mgr->sock, readfds))
 	{
-		dprintf(STDERR_FILENO, "Error recvfrom().\n");
-		exit(FAILURE);
+		if (recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0, (struct sockaddr *)&mgr->sin, &socklen) < 0)
+		{
+			dprintf(STDERR_FILENO, "Error recvfrom().\n");
+			exit(FAILURE);
+		}
+		gettimeofday(&msg->recvd, NULL);
 	}
-	gettimeofday(&msg->recvd, NULL);
 	return (SUCCESS);
 }
 
 int							handle_response(int8_t *resp_buff, t_echopkt *msg)
 {
-	char 					buff[INET_ADDRSTRLEN];
+	char 					ipstr[INET_ADDRSTRLEN];
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
 	{
-		inet_ntop(AF_INET, &resp_addr, buff, INET_ADDRSTRLEN);
-		printf("\n%s", buff);
+		inet_ntop(AF_INET, &resp_addr, ipstr, INET_ADDRSTRLEN);
+		printf("\n%s", ipstr);
 	}
 	printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
 	prev_resp_addr = resp_addr;
