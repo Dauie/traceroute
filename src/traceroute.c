@@ -13,6 +13,8 @@
 #include "../incl/traceroute.h"
 #include "../libft/incl/ping.h"
 
+#define HEXDUMP_COLS 6
+
 long double				time_diff_ms(struct timeval *then, struct timeval *now)
 {
 	long double x;
@@ -26,6 +28,51 @@ long double				time_diff_sec(struct timeval *then, struct timeval *now)
 {
 	return ((now->tv_sec + (1.0 / 1000000) * now->tv_usec) -
 			(then->tv_sec + (1.0 / 1000000) * then->tv_usec));
+}
+
+void hexdump(void *mem, unsigned int len)
+{
+	unsigned int i, j;
+
+	for(i = 0; i < len + ((len % HEXDUMP_COLS) ? (HEXDUMP_COLS - len % HEXDUMP_COLS) : 0); i++)
+	{
+		/* print offset */
+		if(i % HEXDUMP_COLS == 0)
+		{
+			printf("0x%06x: ", i);
+		}
+
+		/* print hex data */
+		if(i < len)
+		{
+			printf("%02x ", 0xFF & ((char*)mem)[i]);
+		}
+		else /* end of block, just aligning for ASCII dump */
+		{
+			printf("   ");
+		}
+
+		/* print ASCII dump */
+		if(i % HEXDUMP_COLS == (HEXDUMP_COLS - 1))
+		{
+			for(j = i - (HEXDUMP_COLS - 1); j <= i; j++)
+			{
+				if(j >= len) /* end of block, not really printing */
+				{
+					putchar(' ');
+				}
+				else if(ft_isprint(((char*)mem)[j])) /* printable char */
+				{
+					ft_putchar(0xFF & ((char*)mem)[j]);
+				}
+				else /* other char */
+				{
+					ft_putchar('.');
+				}
+			}
+			putchar('\n');
+		}
+	}
 }
 
 float					get_percentage(size_t a, size_t b)
@@ -67,7 +114,7 @@ int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
 
 int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfds)
 {
-	int					ret;
+	ssize_t				ret;
 	struct timeval		timeout;
 	socklen_t			socklen;
 
@@ -83,12 +130,13 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	}
 	else if (ret > 0 && FD_ISSET(mgr->sock, readfds))
 	{
-		if (recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen) < 0)
+		if ((ret = recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen)) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
 			exit(FAILURE);
 		}
 		gettimeofday(&msg->recvd, NULL);
+		hexdump(resp_buff, (uint)ret);
 	}
 	return (SUCCESS);
 }

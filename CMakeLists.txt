@@ -1,12 +1,9 @@
-cmake_minimum_required(VERSION 3.10)
-project(traceroute C)
+cmake_minimum_required(VERSION 3.6)
+project(traceroute)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
 
-include_directories(incl)
-include_directories(libft/incl)
-
-add_executable(traceroute
+set(SOURCE_FILES
 		incl/traceroute.h
 		libft/incl/bool.h
 		libft/incl/char.h
@@ -153,3 +150,5 @@ add_executable(traceroute
 		libft/src/tbl/ft_tblrmline.c
 		src/traceroute.c
 		main.c)
+
+add_executable(traceroute ${SOURCE_FILES})
