@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 17:36:37 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 19:44:03 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void					set_init_ttl(t_mgr *mgr, char *ttl)
 		dprintf(STDERR_FILENO, "traceroute: no initial ttl specified\n");
 		useage();
 	}
-	if (!(mgr->init_ttl = ft_atoi(ttl)))
+	if (!(mgr->ttl = ft_atoi(ttl)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for first ttl.\n",
 				ttl);
@@ -171,7 +171,7 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 void				set_program_defaults(t_mgr *mgr)
 {
 	mgr->flags.run = TRUE;
-	mgr->init_ttl = DEF_INIT_TTL;	/* 1 */
+	mgr->ttl = DEF_INIT_TTL;		/* 1 */
 	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
 	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
 	mgr->from.sin_port = DEF_BASE_PORT;	/* 33434 */

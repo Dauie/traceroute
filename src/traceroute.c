@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 19:29:43 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 19:41:11 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,14 +200,14 @@ int				traceroute(t_mgr *mgr)
 	size_t		pktlen;
 	t_echopkt	msg;
 
-	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
-	printf("traceroute to %s (%s), %d hops max, %zu byte packets\n",
-		mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen);
+
 	ft_memset(pkt, 0, IP_MAXPACKET);
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);
 	fill_packet(mgr, &msg, pkt);
-	printf("done.\n");
+	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
+	printf("traceroute to %s (%s), %d hops max, %zu byte packets\n",
+		   mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen);
 	ping_loop(mgr, &msg, pkt, pktlen);
 	free(msg.data);
 	return (SUCCESS);
