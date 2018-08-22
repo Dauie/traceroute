@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 13:04:46 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 17:25:48 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,9 +181,10 @@ void				set_program_defaults(t_mgr *mgr)
 
 void				create_sock(t_mgr *mgr)
 {
-	mgr->sock = ft_makerawsock(IPPROTO_RAW);
-	ft_sockoptraw(mgr->sock);
-	if (bind(mgr->sock, (struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
+	mgr->send_sock = ft_makerawsock(IPPROTO_UDP);
+	mgr->recv_sock = ft_makerawsock(IPPROTO_ICMP);
+	ft_sock_hdrincl(mgr->send_sock);
+	if (bind(mgr->send_sock, (struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error bind().\n");
 		exit(FAILURE);

@@ -54,7 +54,8 @@ typedef struct			s_manager
 	int					init_ttl;
 	int					max_ttl;
 	int					nprobes;
-	int 				sock;
+	int					send_sock;
+	int					recv_sock;
 	struct sockaddr_in	from;
 	struct sockaddr_in	to;
 }						t_mgr;

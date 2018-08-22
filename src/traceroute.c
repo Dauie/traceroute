@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 13:07:03 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 17:07:47 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ static void				fill_packet(t_mgr *mgr, t_echopkt *msg, int8_t *packet)
 
 int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
 {
-	if (sendto(mgr->sock, pkt, pktlen, 0, (struct sockaddr *)&mgr->to, sizeof(struct sockaddr)) < 0)
+	if (sendto(mgr->send_sock, pkt, pktlen, 0, (struct sockaddr *)&mgr->to, sizeof(struct sockaddr)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error sendto().\n");
 		exit(FAILURE);
@@ -122,19 +122,20 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	timeout.tv_usec = 0;
 
 	socklen = sizeof(struct sockaddr);
-	ret = select(mgr->sock + 1, readfds, NULL, NULL, &timeout);
+	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
 	if (ret < 0)
 	{
 		printf("*");
 		return (FAILURE);
 	}
-	else if (ret > 0 && FD_ISSET(mgr->sock, readfds))
+	else if (ret > 0 && FD_ISSET(mgr->recv_sock, readfds))
 	{
-		if ((ret = recvfrom(mgr->sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen)) < 0)
+		if ((ret = recvfrom(mgr->recv_sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen)) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
 			exit(FAILURE);
 		}
+		printf("hexdumping...\n");
 		gettimeofday(&msg->recvd, NULL);
 		hexdump(resp_buff, (uint)ret);
 	}
@@ -165,7 +166,7 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	int8_t 			resp_buff[IP_MAXPACKET];
 
 	FD_ZERO(&readfds);
-	FD_SET(mgr->sock, &readfds);
+	FD_SET(mgr->recv_sock, &readfds);
 	printf("Starting ping loop: \n");
 	while (mgr->flags.run == TRUE)
 	{
