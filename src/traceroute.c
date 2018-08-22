@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 19:41:11 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 19:44:03 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	}
 	else if (ret > 0 && FD_ISSET(mgr->recv_sock, readfds))
 	{
-		if ((ret = recvfrom(mgr->recv_sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen)) < 0)
+		if (recvfrom(mgr->recv_sock, resp_buff, IP_MAXPACKET, 0,  (struct sockaddr *)&mgr->from, &socklen) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
 			exit(FAILURE);
