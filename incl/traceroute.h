@@ -51,13 +51,15 @@ typedef struct			s_flags
 typedef struct			s_manager
 {
 	t_flags				flags;
-	int					init_ttl;
+	int					ttl;
 	int					max_ttl;
-	int					nprobes;
+	uint				nprobes;
+	char				domain[DOMAIN_NAME_LEN];
 	int					send_sock;
 	int					recv_sock;
 	struct sockaddr_in	from;
 	struct sockaddr_in	to;
+
 }						t_mgr;
 
 int				traceroute(t_mgr *mgr);

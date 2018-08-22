@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 17:25:48 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 17:36:37 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,7 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 						" '%s': Unknown host\n", av[i]);
 				exit(FAILURE);
 			}
+			ft_strcpy(mgr->domain, av[i]);
 			mgr->to.sin_addr.s_addr = addr->s_addr;
 			free(addr);
 		}

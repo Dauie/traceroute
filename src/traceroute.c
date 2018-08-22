@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 17:07:47 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/21 19:29:43 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,45 +135,48 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
 			exit(FAILURE);
 		}
-		printf("hexdumping...\n");
 		gettimeofday(&msg->recvd, NULL);
-		hexdump(resp_buff, (uint)ret);
 	}
 	return (SUCCESS);
 }
 
 int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
 {
-	char 					ipstr[INET_ADDRSTRLEN];
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
-	{
-		inet_ntop(AF_INET, &resp_addr, ipstr, INET_ADDRSTRLEN);
-		printf("\n%s", ipstr);
-	}
+		printf("\n%s", inet_ntoa(resp_addr));
 	(void)msg;
-	//printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
+	printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
 	prev_resp_addr = resp_addr;
 	return (SUCCESS);
 }
 
 int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 {
+
 	fd_set			readfds;
 	int8_t 			resp_buff[IP_MAXPACKET];
+	uint 			probe;
 
+	probe = 0;
 	FD_ZERO(&readfds);
 	FD_SET(mgr->recv_sock, &readfds);
-	printf("Starting ping loop: \n");
-	while (mgr->flags.run == TRUE)
+	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
-		send_echo(mgr, pkt, pktlen);
-		ft_memset(resp_buff, 0, IP_MAXPACKET);
-		if (recv_echo(mgr, msg, resp_buff, &readfds ) == SUCCESS)
-			handle_response(resp_buff, msg);
+		printf("%d", probe + 1);
+		while (probe++ < mgr->nprobes)
+		{
+			send_echo(mgr, pkt, pktlen);
+			ft_memset(resp_buff, 0, IP_MAXPACKET);
+			if (recv_echo(mgr, msg, resp_buff, &readfds) == SUCCESS)
+				handle_response(resp_buff, msg);
+		}
+		if ((msg->iphdr.ip_ttl = (u_char)++mgr->ttl) >= mgr->max_ttl)
+			mgr->flags.run = FALSE;
+		fill_packet(mgr, msg, pkt);
 	}
 	return (SUCCESS);
 }
@@ -183,7 +186,7 @@ int 			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
 	if (!(msg->data = (uint8_t *)ft_strdup(MSG_DATA)))
 		return (FAILURE);
 	msg->datalen = (u_short)ft_strlen(MSG_DATA);
-	ft_setip_hdr(&msg->iphdr, mgr->init_ttl,
+	ft_setip_hdr(&msg->iphdr, mgr->ttl,
 				 mgr->flags.icmp ? IPPROTO_ICMP : IPPROTO_UDP, msg->datalen);
 	mgr->flags.icmp == TRUE ? ft_seticmp_hdr(&msg->phdr.icmp, 1, getpid()) :
 	ft_setudp_hdr(&msg->phdr.udp, mgr->to.sin_port, msg->datalen);
@@ -197,12 +200,13 @@ int				traceroute(t_mgr *mgr)
 	size_t		pktlen;
 	t_echopkt	msg;
 
-	printf("traceroute initialization: ");
+	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
+	printf("traceroute to %s (%s), %d hops max, %zu byte packets\n",
+		mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen);
 	ft_memset(pkt, 0, IP_MAXPACKET);
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);
 	fill_packet(mgr, &msg, pkt);
-	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
 	printf("done.\n");
 	ping_loop(mgr, &msg, pkt, pktlen);
 	free(msg.data);
