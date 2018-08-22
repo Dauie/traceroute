@@ -19,14 +19,14 @@ long double				time_diff_ms(struct timeval *then, struct timeval *now)
 {
 	long double x;
 
-	x = (double)(then->tv_usec - now->tv_usec) / 1000.0L +
-		(double)(then->tv_sec - now->tv_sec) * 1000.0L;
+	x = (double)(then->tv_sec - now->tv_sec) * 1000.0L +
+		(double)(then->tv_usec - now->tv_usec) / 1000.0L;
 	return (x);
 }
 
 long double				time_diff_sec(struct timeval *then, struct timeval *now)
 {
-	return ((now->tv_sec + (1.0 / 1000000) * now->tv_usec) -
+	return ((now->tv_sec - (1.0 / 1000000) * now->tv_usec) -
 			(then->tv_sec + (1.0 / 1000000) * then->tv_usec));
 }
 
@@ -123,9 +123,9 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 
 	socklen = sizeof(struct sockaddr);
 	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
-	if (ret < 0)
+	if (ret == 0)
 	{
-		printf("*");
+		ft_putstr("*");
 		return (FAILURE);
 	}
 	else if (ret > 0 && FD_ISSET(mgr->recv_sock, readfds))
@@ -140,17 +140,18 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	return (SUCCESS);
 }
 
-int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
+int							handle_response(const int8_t *resp_buff, t_echopkt *msg, int nprobe, int probe)
 {
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
-		printf("\n%s", inet_ntoa(resp_addr));
-	(void)msg;
-	printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
+		printf("%s", inet_ntoa(resp_addr));
+	printf("  %.3f ms", (float)time_diff_ms(&msg->recvd, &msg->sent));
 	prev_resp_addr = resp_addr;
+	if (probe  == nprobe)
+		printf("\n");
 	return (SUCCESS);
 }
 
@@ -166,17 +167,20 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	FD_SET(mgr->recv_sock, &readfds);
 	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
-		printf("%d", probe + 1);
+		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
+			break;
+		printf("%d ", msg->iphdr.ip_ttl);
 		while (probe++ < mgr->nprobes)
 		{
+			fill_packet(mgr, msg, pkt);
 			send_echo(mgr, pkt, pktlen);
 			ft_memset(resp_buff, 0, IP_MAXPACKET);
 			if (recv_echo(mgr, msg, resp_buff, &readfds) == SUCCESS)
-				handle_response(resp_buff, msg);
+				handle_response(resp_buff, msg, mgr->nprobes, probe);
 		}
-		if ((msg->iphdr.ip_ttl = (u_char)++mgr->ttl) >= mgr->max_ttl)
+		probe = 0;
+		if ((msg->iphdr.ip_ttl = (unsigned char)++mgr->ttl) >= mgr->max_ttl)
 			mgr->flags.run = FALSE;
-		fill_packet(mgr, msg, pkt);
 	}
 	return (SUCCESS);
 }
@@ -200,11 +204,9 @@ int				traceroute(t_mgr *mgr)
 	size_t		pktlen;
 	t_echopkt	msg;
 
-
 	ft_memset(pkt, 0, IP_MAXPACKET);
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);
-	fill_packet(mgr, &msg, pkt);
 	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
 	printf("traceroute to %s (%s), %d hops max, %zu byte packets\n",
 		   mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen);
