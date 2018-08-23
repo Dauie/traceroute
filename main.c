@@ -32,7 +32,7 @@ void					set_init_ttl(t_mgr *mgr, char *ttl)
 	}
 	if (!(mgr->ttl = ft_atoi(ttl)))
 	{
-		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for first ttl.\n",
+		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for initial ttl.\n",
 				ttl);
 		exit(FAILURE);
 	}
@@ -79,6 +79,11 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 	{
 		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for nprobe.\n",
 				nprobes);
+		exit(FAILURE);
+	}
+	if (mgr->nprobes > MAX_PROB_AMT)
+	{
+		dprintf(STDERR_FILENO, "no more than %d probes per hop", MAX_PROB_AMT);
 		exit(FAILURE);
 	}
 }
@@ -168,6 +173,7 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 
 void				set_program_defaults(t_mgr *mgr)
 {
+	mgr->udp_port = DEF_BASE_PORT;
 	mgr->flags.run = TRUE;
 	mgr->ttl = DEF_INIT_TTL;		/* 1 */
 	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <netinet/ip_icmp.h>
 #include "../incl/traceroute.h"
 
 #define HEXDUMP_COLS 6
@@ -117,9 +118,10 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	struct timeval		timeout;
 	socklen_t			socklen;
 
-	timeout.tv_sec = 5;
+	timeout.tv_sec = DEF_WAIT_TIME;
 	timeout.tv_usec = 0;
-
+	FD_ZERO(readfds);
+	FD_SET(mgr->recv_sock, readfds);
 	socklen = sizeof(struct sockaddr);
 	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
 	if (ret < 0)
@@ -139,17 +141,53 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	return (SUCCESS);
 }
 
-int							handle_response(const int8_t *resp_buff, t_echopkt *msg, int nprobe, int probe)
+int							icmppkt_check(int8_t *resp_buff, int pid, int seq)
+{
+	struct icmp				*icmp;
+
+	icmp = (struct icmp *)resp_buff + IPV4_HDRLEN;
+	if (icmp->icmp_hun.ih_idseq.icd_id == htons(pid) &&
+		icmp->icmp_hun.ih_idseq.icd_seq == htons(seq))
+		return (SUCCESS);
+	return (FAILURE);
+}
+
+int							udppkt_check(int8_t *resp_buff, int pid, int init_udp_port, int seq)
+{
+	struct udphdr			*udp;
+
+	udp = (struct udphdr *)resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN;
+	if (udp->uh_dport == htons(init_udp_port + seq) && udp->uh_sport == htons(pid + seq))
+		return (TRUE);
+	return (FALSE);
+}
+
+int							check_packet(t_mgr *mgr, int8_t *resp_buff)
+{
+	if (mgr->flags.icmp == TRUE)
+		return (icmppkt_check(resp_buff, mgr->pid, mgr->ttl));
+	else
+		return (udppkt_check(resp_buff, mgr->pid, mgr->udp_port, mgr->ttl));
+}
+
+void						update_echopkt(t_echopkt *echo)
+{
+	echo->
+}
+
+int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int probe)
 {
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
+	if (check_packet(mgr, resp_buff) == FAILURE)
+		return (FAILURE);
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
-		printf("%s", inet_ntoa(resp_addr));
+		printf("(%s)", inet_ntoa(resp_addr));
 	printf("  %.3f ms", (float)time_diff_ms(&msg->recvd, &msg->sent));
 	prev_resp_addr = resp_addr;
-	if (probe  == nprobe)
+	if (probe  == mgr->nprobes)
 		printf("\n");
 	return (SUCCESS);
 }
@@ -162,26 +200,25 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	uint 			probe;
 
 	probe = 0;
-	FD_ZERO(&readfds);
-	FD_SET(mgr->recv_sock, &readfds);
+
 	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
-		printf(mgr->ttl < 9 ? " %d" : "%d", probe + 1);
 		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
 			break;
-		printf("%d ", msg->iphdr.ip_ttl);
-		while (probe++ < mgr->nprobes)
+		printf(mgr->ttl <= 9 ? " %d  " : "%d  ", mgr->ttl);
+		while (probe < mgr->nprobes)
 		{
 			fill_packet(mgr, msg, pkt);
 			send_echo(mgr, pkt, pktlen);
 			ft_memset(resp_buff, 0, IP_MAXPACKET);
 			if (recv_echo(mgr, msg, resp_buff, &readfds) == SUCCESS)
-				handle_response(resp_buff, msg, mgr->nprobes, probe);
+				if (handle_response(mgr, resp_buff, msg, probe) == SUCCESS)
+					probe++;
 		}
 		probe = 0;
+		update_echomsg();
 		if ((msg->iphdr.ip_ttl = (unsigned char)++mgr->ttl) >= mgr->max_ttl)
 			mgr->flags.run = FALSE;
-		fill_packet(mgr, msg, pkt);
 	}
 	return (SUCCESS);
 }

@@ -10,9 +10,11 @@
 #include "../libft/incl/cnvrsn.h"
 
 # define OPTLEN (6)
+# define DEF_WAIT_TIME (2)
 # define DEF_MAX_TTL (64)
 # define DEF_INIT_TTL (1)
 # define DEF_PROB_AMT (3)
+# define MAX_PROB_AMT (10)
 # define DEF_BASE_PORT (33434)
 # define MSG_DATA "         4242~!@#$%^&*()_+12345678890-="
 
@@ -51,8 +53,10 @@ typedef struct			s_flags
 typedef struct			s_manager
 {
 	t_flags				flags;
-	int					ttl;
-	int					max_ttl;
+	pid_t				pid;
+	uint				udp_port;
+	uint				ttl;
+	uint				max_ttl;
 	uint				nprobes;
 	char				domain[DOMAIN_NAME_LEN];
 	int					send_sock;
