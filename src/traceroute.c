@@ -6,12 +6,11 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 19:44:03 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/22 12:51:44 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/traceroute.h"
-#include "../libft/incl/ping.h"
 
 #define HEXDUMP_COLS 6
 
