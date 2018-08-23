@@ -199,7 +199,6 @@ int				traceroute(t_mgr *mgr)
 	size_t		pktlen;
 	t_echopkt	msg;
 
-
 	ft_memset(pkt, 0, IP_MAXPACKET);
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);

@@ -106,10 +106,10 @@
 		<Unit filename="/nfs/2016/r/rlutt/code/traceroute/libft/incl/net.h">
 			<Option target="traceroute"/>
 		</Unit>
-		<Unit filename="/nfs/2016/r/rlutt/code/traceroute/libft/incl/num.h">
+		<Unit filename="/nfs/2016/r/rlutt/code/traceroute/libft/incl/net_ping.h">
 			<Option target="traceroute"/>
 		</Unit>
-		<Unit filename="/nfs/2016/r/rlutt/code/traceroute/libft/incl/ping.h">
+		<Unit filename="/nfs/2016/r/rlutt/code/traceroute/libft/incl/num.h">
 			<Option target="traceroute"/>
 		</Unit>
 		<Unit filename="/nfs/2016/r/rlutt/code/traceroute/libft/incl/printf.h">

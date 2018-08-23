@@ -50,7 +50,7 @@ void 				set_port(t_mgr *mgr, char *port)
 		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
 		exit(FAILURE);
 	}
-	mgr->from.sin_port = mgr->from.sin_port;
+	mgr->udp_port;
 }
 
 void					set_max_ttl(t_mgr *mgr, char *ttl)
@@ -169,11 +169,13 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 void				set_program_defaults(t_mgr *mgr)
 {
 	mgr->flags.run = TRUE;
+	mgr->flags.udp = TRUE;
+	mgr->udp_port = DEF_UDP_PORT;
 	mgr->ttl = DEF_INIT_TTL;		/* 1 */
 	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
 	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
-	mgr->from.sin_port = DEF_BASE_PORT;	/* 33434 */
-	mgr->to.sin_port = DEF_BASE_PORT;
+	mgr->from.sin_port = DEF_UDP_PORT;	/* 33434 */
+	mgr->to.sin_port = DEF_UDP_PORT;
 	mgr->from.sin_family = AF_INET;
 	mgr->to.sin_family = AF_INET;
 }

@@ -13,7 +13,7 @@
 # define DEF_MAX_TTL (64)
 # define DEF_INIT_TTL (1)
 # define DEF_PROB_AMT (3)
-# define DEF_BASE_PORT (33434)
+# define DEF_UDP_PORT (33434)
 # define MSG_DATA "         4242~!@#$%^&*()_+12345678890-="
 
 /**
@@ -26,7 +26,7 @@
 ** -m : Set the max time-to-live (max number of hops) used in outgoing probe
 **      packets.  The default is net.inet.ip.ttl hops (the same default used for
 **      TCP connections).
-** -p : Protocol specific. For UDP and TCP, sets the base port number used in
+** -p : Protocol specific. For UDP, sets the base port number used in
 **      probes (default is 33434).  traceroute hopes that nothing is listening
 **      on UDP ports base to base+nhops-1 at the destination host
 **      (so an ICMP PORT_UNREACHABLE message will be returned to terminate the
@@ -46,13 +46,16 @@ typedef struct			s_flags
 {
 	uint8_t 			run: 1;
 	uint8_t				icmp: 1;
+	uint8_t				udp: 1;
 }						t_flags;
 
 typedef struct			s_manager
 {
 	t_flags				flags;
-	int					ttl;
-	int					max_ttl;
+	uint				ttl;
+	uint				max_ttl;
+	uint				udp_port;
+	int					pid;
 	uint				nprobes;
 	char				domain[DOMAIN_NAME_LEN];
 	int					send_sock;

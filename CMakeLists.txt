@@ -142,13 +142,13 @@ set(SOURCE_FILES
 		libft/src/tbl/ft_crafttbl.c
 		libft/src/tbl/ft_getenvar.c
 		libft/src/tbl/ft_itbllen.c
-		libft/src/tbl/ft_tbladdl.c
-		libft/src/tbl/ft_tbldel.c
-		libft/src/tbl/ft_tbldup.c
-		libft/src/tbl/ft_tbllen.c
-		libft/src/tbl/ft_tblrepline.c
-		libft/src/tbl/ft_tblrmline.c
-		src/traceroute.c
-		main.c)
+    libft/src/tbl/ft_tbladdl.c
+    libft/src/tbl/ft_tbldel.c
+    libft/src/tbl/ft_tbldup.c
+    libft/src/tbl/ft_tbllen.c
+    libft/src/tbl/ft_tblrepline.c
+    libft/src/tbl/ft_tblrmline.c
+    src/traceroute.c
+    main.c)
 
 add_executable(traceroute ${SOURCE_FILES})
