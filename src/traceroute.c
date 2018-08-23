@@ -122,7 +122,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 
 	socklen = sizeof(struct sockaddr);
 	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
-	if (ret == 0)
+	if (ret < 0)
 	{
 		ft_putstr("*");
 		return (FAILURE);
@@ -166,6 +166,7 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	FD_SET(mgr->recv_sock, &readfds);
 	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
+		printf(mgr->ttl < 9 ? " %d" : "%d", probe + 1);
 		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
 			break;
 		printf("%d ", msg->iphdr.ip_ttl);
@@ -180,6 +181,7 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 		probe = 0;
 		if ((msg->iphdr.ip_ttl = (unsigned char)++mgr->ttl) >= mgr->max_ttl)
 			mgr->flags.run = FALSE;
+		fill_packet(mgr, msg, pkt);
 	}
 	return (SUCCESS);
 }
