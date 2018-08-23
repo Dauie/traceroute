@@ -15,8 +15,8 @@ add_executable(traceroute
 		libft/incl/lst.h
 		libft/incl/mem.h
 		libft/incl/net.h
+		libft/incl/net_ping.h
 		libft/incl/num.h
-		libft/incl/ping.h
 		libft/incl/printf.h
 		libft/incl/put.h
 		libft/incl/return_types.h

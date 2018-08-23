@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/21 19:44:03 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/22 13:49:30 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 		dprintf(STDERR_FILENO, "traceroute: no probe amount specified\n");
 		useage();
 	}
-	if (!(mgr->nprobes = ft_atoi(nprobes)))
+	if (!(mgr->nprobes = (uint)ft_atoi(nprobes)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for nprobe.\n",
 				nprobes);
@@ -85,21 +85,20 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 
 void 				set_addr_iface(t_mgr *mgr, char *iface)
 {
-	struct in_addr	*addr;
+	struct in_addr	addr;
 
 	if (!iface)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no interface specified\n");
 		useage();
 	}
-	if (!(addr = ft_getifaceaddr(iface, NULL, FALSE)))
+	if (!(addr.s_addr = ft_getifaceaddr(iface, NULL, FALSE)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: Can't find interface %s\n",
 				iface);
 		exit(FAILURE);
 	}
-	mgr->from.sin_addr = *addr;
-	free(addr);
+	mgr->from.sin_addr = addr;
 }
 
 void 				set_addr(t_mgr *mgr, char *addr)
@@ -140,7 +139,7 @@ int 				set_args(t_mgr *mgr, char *flag, char *setting)
 int					parse_args(t_mgr *mgr, int ac, char **av)
 {
 	int i;
-	struct in_addr *addr;
+	struct in_addr addr;
 
 	i = 0;
 	while (++i < ac)
@@ -154,15 +153,14 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 		}
 		else if (av[i][0] != '-' || ac == 2)
 		{
-			if (!(addr = ft_domtoip(av[i], NULL, FALSE)))
+			if (!(addr.s_addr = ft_domtoip(av[i], NULL, FALSE)))
 			{
 				dprintf(STDERR_FILENO, "traceroute: cannot resolve"
 						" '%s': Unknown host\n", av[i]);
 				exit(FAILURE);
 			}
 			ft_strcpy(mgr->domain, av[i]);
-			mgr->to.sin_addr.s_addr = addr->s_addr;
-			free(addr);
+			mgr->to.sin_addr.s_addr = addr.s_addr;
 		}
 	}
 	return (SUCCESS);
