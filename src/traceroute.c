@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/22 12:51:44 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/22 18:02:25 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	FD_SET(mgr->recv_sock, &readfds);
 	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
-		printf("%d", probe + 1);
+		printf(mgr->ttl < 9 ? " %d" : "%d", probe + 1);
 		while (probe++ < mgr->nprobes)
 		{
 			send_echo(mgr, pkt, pktlen);
