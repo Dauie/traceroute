@@ -175,13 +175,14 @@ void				set_program_defaults(t_mgr *mgr)
 {
 	mgr->flags.run = TRUE;
 	mgr->flags.udp = TRUE;
+	mgr->flags.icmp = FALSE;
 	mgr->pid = getpid();
 	mgr->ttl = DEF_INIT_TTL;		/* 1 */
 	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
 	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
 	mgr->udp_port = DEF_UDP_PORT;	/* 33434 */
-	mgr->from.sin_port = DEF_UDP_PORT;
-	mgr->to.sin_port = (in_port_t)mgr->pid;
+	mgr->from.sin_port = (in_port_t)mgr->pid;
+	mgr->to.sin_port =  DEF_UDP_PORT;
 	mgr->from.sin_family = AF_INET;
 	mgr->to.sin_family = AF_INET;
 }

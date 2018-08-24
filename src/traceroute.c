@@ -38,17 +38,17 @@ void hexdump(void *mem, unsigned int len)
 		/* print offset */
 		if(i % HEXDUMP_COLS == 0)
 		{
-			printf("0x%06x: ", i);
+			ft_printf("0x%06x: ", i);
 		}
 
 		/* print hex data */
 		if(i < len)
 		{
-			printf("%02x ", 0xFF & ((char*)mem)[i]);
+			ft_printf("%02x ", 0xFF & ((char*)mem)[i]);
 		}
 		else /* end of block, just aligning for ASCII dump */
 		{
-			printf("   ");
+			ft_printf("   ");
 		}
 
 		/* print ASCII dump */
@@ -69,9 +69,10 @@ void hexdump(void *mem, unsigned int len)
 					ft_putchar('.');
 				}
 			}
-			putchar('\n');
+			ft_printf("\n");
 		}
 	}
+	ft_printf("\n");
 }
 
 float					get_percentage(size_t a, size_t b)
@@ -123,9 +124,9 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	FD_SET(mgr->recv_sock, readfds);
 	socklen = sizeof(struct sockaddr);
 	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
-	if (ret < 0)
+	if (ret <= 0)
 	{
-		ft_putstr("*");
+		printf("*");
 		return (FAILURE);
 	}
 	else if (ret > 0 && FD_ISSET(mgr->recv_sock, readfds))
@@ -151,22 +152,23 @@ int							icmppkt_check(int8_t *resp_buff, int pid, int seq)
 	return (FAILURE);
 }
 
-int							udppkt_check(int8_t *resp_buff, int pid, int init_udp_port, int seq)
+int							udppkt_check(int8_t *resp_buff, int udp_port, int pid, int seq)
 {
 	struct udphdr			*udp;
 
-	udp = (struct udphdr *)resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN;
-	if (udp->uh_dport == htons(init_udp_port + seq) && udp->uh_sport == htons(pid + seq))
-		return (TRUE);
-	return (FALSE);
+	udp = (struct udphdr *)(resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
+	if (udp->uh_dport == htons(udp_port) && udp->uh_sport == htons(pid + seq))
+		return (SUCCESS);
+	return (FAILURE);
 }
 
 int							check_packet(t_mgr *mgr, int8_t *resp_buff)
 {
+	//hexdump(resp_buff,  72);
 	if (mgr->flags.icmp == TRUE)
 		return (icmppkt_check(resp_buff, mgr->pid, mgr->ttl));
 	else
-		return (udppkt_check(resp_buff, mgr->pid, mgr->udp_port, mgr->ttl));
+		return (udppkt_check(resp_buff, mgr->udp_port, mgr->pid, mgr->ttl));
 }
 
 int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int probe)
@@ -182,14 +184,14 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int pro
 	printf("  %.3f ms", (float)time_diff_ms(&msg->recvd, &msg->sent));
 	prev_resp_addr = resp_addr;
 	if (probe  == mgr->nprobes)
-		printf("\n");
+		prev_resp_addr.s_addr = 0;
 	return (SUCCESS);
 }
 
 void						update_echopkt(t_mgr *mgr, t_echopkt *msg)
 {
 	ft_setip_hdr(&msg->iphdr, mgr->ttl,
-				 mgr->flags.icmp ? IPPROTO_ICMP : IPPROTO_UDP, msg->datalen);
+				 mgr->flags.icmp == TRUE ? IPPROTO_ICMP : IPPROTO_UDP, msg->datalen);
 	mgr->flags.icmp == TRUE ?
 	ft_seticmp_hdr(&msg->phdr.icmp, ICMP_ECHO, mgr->ttl, mgr->pid) :
 	ft_setudp_hdr(&msg->phdr.udp, mgr->pid + mgr->ttl, mgr->udp_port, msg->datalen);
@@ -197,13 +199,11 @@ void						update_echopkt(t_mgr *mgr, t_echopkt *msg)
 
 int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 {
-
 	fd_set			readfds;
 	int8_t 			resp_buff[IP_MAXPACKET];
 	int 			probe;
 
 	probe = 0;
-
 	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
 		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
@@ -215,12 +215,13 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 			send_echo(mgr, pkt, pktlen);
 			ft_memset(resp_buff, 0, IP_MAXPACKET);
 			if (recv_echo(mgr, msg, resp_buff, &readfds) == SUCCESS)
-				if (handle_response(mgr, resp_buff, msg, probe) == SUCCESS)
-					probe++;
+				handle_response(mgr, resp_buff, msg, probe + 1);
+			if (++probe == mgr->nprobes)
+				printf("\n");
+			fflush(stdout);
 		}
 		probe = 0;
 		mgr->ttl++;
-		mgr->udp_port = mgr->flags.udp == TRUE ? mgr->udp_port++ : mgr->udp_port;
 		update_echopkt(mgr, msg);
 		if ((msg->iphdr.ip_ttl = (unsigned char)mgr->ttl) >= mgr->max_ttl)
 			mgr->flags.run = FALSE;
