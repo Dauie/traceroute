@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/22 18:02:25 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/23 17:21:52 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ long double				time_diff_ms(struct timeval *then, struct timeval *now)
 {
 	long double x;
 
-	x = (double)(then->tv_usec - now->tv_usec) / 1000.0L +
-		(double)(then->tv_sec - now->tv_sec) * 1000.0L;
+	x = (double)(then->tv_sec - now->tv_sec) * 1000.0L +
+		(double)(then->tv_usec - now->tv_usec) / 1000.0L;
 	return (x);
 }
 
 long double				time_diff_sec(struct timeval *then, struct timeval *now)
 {
-	return ((now->tv_sec + (1.0 / 1000000) * now->tv_usec) -
+	return ((now->tv_sec - (1.0 / 1000000) * now->tv_usec) -
 			(then->tv_sec + (1.0 / 1000000) * then->tv_usec));
 }
 
@@ -117,14 +117,15 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	struct timeval		timeout;
 	socklen_t			socklen;
 
-	timeout.tv_sec = 5;
+	timeout.tv_sec = DEF_WAIT_TIME;
 	timeout.tv_usec = 0;
-
+	FD_ZERO(readfds);
+	FD_SET(mgr->recv_sock, readfds);
 	socklen = sizeof(struct sockaddr);
 	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
 	if (ret < 0)
 	{
-		printf("*");
+		ft_putstr("*");
 		return (FAILURE);
 	}
 	else if (ret > 0 && FD_ISSET(mgr->recv_sock, readfds))
@@ -139,18 +140,59 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	return (SUCCESS);
 }
 
-int							handle_response(const int8_t *resp_buff, t_echopkt *msg)
+int							icmppkt_check(int8_t *resp_buff, int pid, int seq)
+{
+	struct icmp				*icmp;
+
+	icmp = (struct icmp *)resp_buff + IPV4_HDRLEN;
+	if (icmp->icmp_hun.ih_idseq.icd_id == htons(pid) &&
+		icmp->icmp_hun.ih_idseq.icd_seq == htons(seq))
+		return (SUCCESS);
+	return (FAILURE);
+}
+
+int							udppkt_check(int8_t *resp_buff, int pid, int init_udp_port, int seq)
+{
+	struct udphdr			*udp;
+
+	udp = (struct udphdr *)resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN;
+	if (udp->uh_dport == htons(init_udp_port + seq) && udp->uh_sport == htons(pid + seq))
+		return (TRUE);
+	return (FALSE);
+}
+
+int							check_packet(t_mgr *mgr, int8_t *resp_buff)
+{
+	if (mgr->flags.icmp == TRUE)
+		return (icmppkt_check(resp_buff, mgr->pid, mgr->ttl));
+	else
+		return (udppkt_check(resp_buff, mgr->pid, mgr->udp_port, mgr->ttl));
+}
+
+int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int probe)
 {
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
+	if (check_packet(mgr, resp_buff) == FAILURE)
+		return (FAILURE);
 	resp_addr = ((struct ip*)resp_buff)->ip_src;
 	if (prev_resp_addr.s_addr != resp_addr.s_addr)
-		printf("\n%s", inet_ntoa(resp_addr));
-	(void)msg;
-	printf(" %.3f", (float)time_diff_ms(&msg->sent, &msg->recvd));
+		printf("(%s)", inet_ntoa(resp_addr));
+	printf("  %.3f ms", (float)time_diff_ms(&msg->recvd, &msg->sent));
 	prev_resp_addr = resp_addr;
+	if (probe  == mgr->nprobes)
+		printf("\n");
 	return (SUCCESS);
+}
+
+void						update_echopkt(t_mgr *mgr, t_echopkt *msg)
+{
+	ft_setip_hdr(&msg->iphdr, mgr->ttl,
+				 mgr->flags.icmp ? IPPROTO_ICMP : IPPROTO_UDP, msg->datalen);
+	mgr->flags.icmp == TRUE ?
+	ft_seticmp_hdr(&msg->phdr.icmp, ICMP_ECHO, mgr->ttl, mgr->pid) :
+	ft_setudp_hdr(&msg->phdr.udp, mgr->pid + mgr->ttl, mgr->udp_port, msg->datalen);
 }
 
 int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
@@ -158,24 +200,30 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 
 	fd_set			readfds;
 	int8_t 			resp_buff[IP_MAXPACKET];
-	uint 			probe;
+	int 			probe;
 
 	probe = 0;
-	FD_ZERO(&readfds);
-	FD_SET(mgr->recv_sock, &readfds);
+
 	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
 	{
-		printf(mgr->ttl < 9 ? " %d" : "%d", probe + 1);
-		while (probe++ < mgr->nprobes)
+		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
+			break;
+		printf(mgr->ttl <= 9 ? " %d  " : "%d  ", mgr->ttl);
+		while (probe < mgr->nprobes)
 		{
+			fill_packet(mgr, msg, pkt);
 			send_echo(mgr, pkt, pktlen);
 			ft_memset(resp_buff, 0, IP_MAXPACKET);
 			if (recv_echo(mgr, msg, resp_buff, &readfds) == SUCCESS)
-				handle_response(resp_buff, msg);
+				if (handle_response(mgr, resp_buff, msg, probe) == SUCCESS)
+					probe++;
 		}
-		if ((msg->iphdr.ip_ttl = (u_char)++mgr->ttl) >= mgr->max_ttl)
+		probe = 0;
+		mgr->ttl++;
+		mgr->udp_port = mgr->flags.udp == TRUE ? mgr->udp_port++ : mgr->udp_port;
+		update_echopkt(mgr, msg);
+		if ((msg->iphdr.ip_ttl = (unsigned char)mgr->ttl) >= mgr->max_ttl)
 			mgr->flags.run = FALSE;
-		fill_packet(mgr, msg, pkt);
 	}
 	return (SUCCESS);
 }
@@ -184,11 +232,8 @@ int 			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
 {
 	if (!(msg->data = (uint8_t *)ft_strdup(MSG_DATA)))
 		return (FAILURE);
-	msg->datalen = (u_short)ft_strlen(MSG_DATA);
-	ft_setip_hdr(&msg->iphdr, mgr->ttl,
-				 mgr->flags.icmp ? IPPROTO_ICMP : IPPROTO_UDP, msg->datalen);
-	mgr->flags.icmp == TRUE ? ft_seticmp_hdr(&msg->phdr.icmp, 1, getpid()) :
-	ft_setudp_hdr(&msg->phdr.udp, mgr->to.sin_port, msg->datalen);
+	msg->datalen = (u_short)ft_strlen(MSG_DATA) + sizeof(struct timeval);
+	update_echopkt(mgr, msg);
 	ft_setip_dstsrc(&msg->iphdr,  &mgr->from.sin_addr, &mgr->to.sin_addr);
 	return (SUCCESS);
 }
@@ -202,8 +247,7 @@ int				traceroute(t_mgr *mgr)
 	ft_memset(pkt, 0, IP_MAXPACKET);
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);
-	fill_packet(mgr, &msg, pkt);
-	pktlen = IPV4_HDRLEN + DEF_HDRLEN + sizeof(struct timeval) + msg.datalen;
+	pktlen = IPV4_HDRLEN + DEF_HDRLEN + msg.datalen;
 	printf("traceroute to %s (%s), %d hops max, %zu byte packets\n",
 		   mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen);
 	ping_loop(mgr, &msg, pkt, pktlen);

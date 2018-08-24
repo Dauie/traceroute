@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/22 13:49:30 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/23 16:25:29 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void					set_init_ttl(t_mgr *mgr, char *ttl)
 	}
 	if (!(mgr->ttl = ft_atoi(ttl)))
 	{
-		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for first ttl.\n",
+		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for initial ttl.\n",
 				ttl);
 		exit(FAILURE);
 	}
@@ -42,15 +42,15 @@ void 				set_port(t_mgr *mgr, char *port)
 {
 	if (!port)
 	{
-		dprintf(STDERR_FILENO, "traceroute: no protocol specified\n");
+		dprintf(STDERR_FILENO, "traceroute: no port specified\n");
 		useage();
 	}
-	if (!(mgr->to.sin_port = (ushort)ft_atoi(port)))
+	if (!(mgr->udp_port  = ft_atoi(port)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
 		exit(FAILURE);
 	}
-	mgr->udp_port;
+	mgr->to.sin_port = (in_port_t)mgr->udp_port;
 }
 
 void					set_max_ttl(t_mgr *mgr, char *ttl)
@@ -81,6 +81,11 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 				nprobes);
 		exit(FAILURE);
 	}
+	if (mgr->nprobes > MAX_PROB_AMT)
+	{
+		dprintf(STDERR_FILENO, "no more than '%d' probes per hop", MAX_PROB_AMT);
+		exit(FAILURE);
+	}
 }
 
 void 				set_addr_iface(t_mgr *mgr, char *iface)
@@ -94,7 +99,7 @@ void 				set_addr_iface(t_mgr *mgr, char *iface)
 	}
 	if (!(addr.s_addr = ft_getifaceaddr(iface, NULL, FALSE)))
 	{
-		dprintf(STDERR_FILENO, "traceroute: Can't find interface %s\n",
+		dprintf(STDERR_FILENO, "traceroute: Can't find interface '%s'\n",
 				iface);
 		exit(FAILURE);
 	}
@@ -170,22 +175,26 @@ void				set_program_defaults(t_mgr *mgr)
 {
 	mgr->flags.run = TRUE;
 	mgr->flags.udp = TRUE;
-	mgr->udp_port = DEF_UDP_PORT;
+	mgr->pid = getpid();
 	mgr->ttl = DEF_INIT_TTL;		/* 1 */
 	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
 	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
-	mgr->from.sin_port = DEF_UDP_PORT;	/* 33434 */
-	mgr->to.sin_port = DEF_UDP_PORT;
+	mgr->udp_port = DEF_UDP_PORT;	/* 33434 */
+	mgr->from.sin_port = DEF_UDP_PORT;
+	mgr->to.sin_port = (in_port_t)mgr->pid;
 	mgr->from.sin_family = AF_INET;
 	mgr->to.sin_family = AF_INET;
 }
 
 void				create_sock(t_mgr *mgr)
 {
-	mgr->send_sock = ft_makerawsock(IPPROTO_UDP);
+	mgr->send_sock = ft_makerawsock(mgr->flags.udp ?
+									IPPROTO_UDP : IPPROTO_ICMP);
 	mgr->recv_sock = ft_makerawsock(IPPROTO_ICMP);
 	ft_sock_hdrincl(mgr->send_sock);
-	if (bind(mgr->send_sock, (struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
+	if (mgr->flags.udp == TRUE &&
+		bind(mgr->send_sock,
+			(struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error bind().\n");
 		exit(FAILURE);
@@ -200,7 +209,6 @@ int					main(int ac, char **av)
 		return (FAILURE);
 	if (ac == 1)
 		useage();
-	mgr->flags.run = TRUE;
 	set_program_defaults(mgr);
 	parse_args(mgr, ac, av);
 	create_sock(mgr);
