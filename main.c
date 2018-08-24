@@ -83,7 +83,7 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 	}
 	if (mgr->nprobes > MAX_PROB_AMT)
 	{
-		dprintf(STDERR_FILENO, "no more than '%d' probes per hop", MAX_PROB_AMT);
+		dprintf(STDERR_FILENO, "no more than '%d' probes per hop\n", MAX_PROB_AMT);
 		exit(FAILURE);
 	}
 }
