@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/24 15:34:27 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/23 21:50:05 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 	}
 	if (mgr->nprobes > MAX_PROB_AMT)
 	{
-		dprintf(STDERR_FILENO, "no more than '%d' probes per hop\n", MAX_PROB_AMT);
+		dprintf(STDERR_FILENO, "no more than '%d' probes per hop", MAX_PROB_AMT);
 		exit(FAILURE);
 	}
 }
@@ -189,11 +189,9 @@ void				set_program_defaults(t_mgr *mgr)
 
 void				create_sock(t_mgr *mgr)
 {
-	struct protoent *pro;
-
-	pro = getprotobyname(mgr->flags.icmp ? "icmp" : "udp");
-	mgr->send_sock = ft_makerawsock(pro->p_proto);
-	mgr->recv_sock = ft_makerawsock(IPPROTO_RAW);
+	mgr->send_sock = ft_makerawsock(mgr->flags.udp ?
+									IPPROTO_UDP : IPPROTO_ICMP);
+	mgr->recv_sock = ft_makerawsock(IPPROTO_ICMP);
 	ft_sock_hdrincl(mgr->send_sock);
 	if (mgr->flags.udp == TRUE &&
 		bind(mgr->send_sock,
