@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/24 15:16:33 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/24 15:34:27 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,8 +192,8 @@ void				create_sock(t_mgr *mgr)
 	struct protoent *pro;
 
 	pro = getprotobyname(mgr->flags.icmp ? "icmp" : "udp");
-	mgr->send_sock = ft_makerawsock(IPPROTO_RAW);
-	mgr->recv_sock = ft_makerawsock(pro->p_proto);
+	mgr->send_sock = ft_makerawsock(pro->p_proto);
+	mgr->recv_sock = ft_makerawsock(IPPROTO_RAW);
 	ft_sock_hdrincl(mgr->send_sock);
 	if (mgr->flags.udp == TRUE &&
 		bind(mgr->send_sock,
