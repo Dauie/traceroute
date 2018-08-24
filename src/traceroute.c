@@ -126,7 +126,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg, int8_t *resp_buff, fd_set *readfd
 	ret = select(mgr->recv_sock + 1, readfds, NULL, NULL, &timeout);
 	if (ret <= 0)
 	{
-		printf("*");
+		printf("  *");
 		return (FAILURE);
 	}
 	else if (ret > 0 && FD_ISSET(mgr->recv_sock, readfds))
@@ -176,16 +176,17 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int pro
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
 
-	if (check_packet(mgr, resp_buff) == FAILURE)
-		return (FAILURE);
-	resp_addr = ((struct ip*)resp_buff)->ip_src;
-	if (prev_resp_addr.s_addr != resp_addr.s_addr)
-		printf("(%s)", inet_ntoa(resp_addr));
-	printf("  %.3f ms", (float)time_diff_ms(&msg->recvd, &msg->sent));
-	prev_resp_addr = resp_addr;
-	if (probe  == mgr->nprobes)
+	if (check_packet(mgr, resp_buff) == SUCCESS)
+	{
+		resp_addr = ((struct ip *) resp_buff)->ip_src;
+		if (prev_resp_addr.s_addr != resp_addr.s_addr)
+			printf("  (%s)", inet_ntoa(resp_addr));
+		printf("  %.3f ms", (float) time_diff_ms(&msg->recvd, &msg->sent));
+		prev_resp_addr = resp_addr;
+	}
+	if (probe  >= mgr->nprobes)
 		prev_resp_addr.s_addr = 0;
-	return (SUCCESS);
+	return (FAILURE);
 }
 
 void						update_echopkt(t_mgr *mgr, t_echopkt *msg)
@@ -204,26 +205,23 @@ int					ping_loop(t_mgr *mgr, t_echopkt *msg, int8_t *pkt, size_t pktlen)
 	int 			probe;
 
 	probe = 0;
-	while (mgr->flags.run == TRUE && mgr->ttl < mgr->max_ttl)
+	while (mgr->flags.run == TRUE && mgr->ttl <= mgr->max_ttl)
 	{
-		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
-			break;
-		printf(mgr->ttl <= 9 ? " %d  " : "%d  ", mgr->ttl);
-		while (probe < mgr->nprobes)
+		printf(mgr->ttl <= 9 ? " %d " : "%d ", mgr->ttl);
+		while (probe++ < mgr->nprobes)
 		{
 			fill_packet(mgr, msg, pkt);
 			send_echo(mgr, pkt, pktlen);
 			ft_memset(resp_buff, 0, IP_MAXPACKET);
-			if (recv_echo(mgr, msg, resp_buff, &readfds) == SUCCESS)
-				handle_response(mgr, resp_buff, msg, probe + 1);
-			if (++probe == mgr->nprobes)
-				printf("\n");
+			recv_echo(mgr, msg, resp_buff, &readfds);
+			handle_response(mgr, resp_buff, msg, probe);
 			fflush(stdout);
 		}
+		printf("\n");
 		probe = 0;
 		mgr->ttl++;
 		update_echopkt(mgr, msg);
-		if ((msg->iphdr.ip_ttl = (unsigned char)mgr->ttl) >= mgr->max_ttl)
+		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)
 			mgr->flags.run = FALSE;
 	}
 	return (SUCCESS);
