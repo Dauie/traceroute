@@ -6,13 +6,13 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/23 21:50:05 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/24 15:42:03 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/traceroute.h"
 
-char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
+char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q", "-I"};
 
 static void			useage(void)
 {
@@ -21,6 +21,12 @@ static void			useage(void)
 				"\t[-s ip address][-s interface address]\n"
 				"\t[-q probe amount][-h help]... destination\n");
 	exit(SUCCESS);
+}
+
+void					set_proto_icmp(t_mgr *mgr, char *null)
+{
+	(void)null;
+	mgr->flags.icmp = TRUE;
 }
 
 void					set_init_ttl(t_mgr *mgr, char *ttl)
@@ -118,7 +124,7 @@ void 				set_addr(t_mgr *mgr, char *addr)
 }
 
 void (*g_funcs[])(t_mgr *, char *) =
-		{ &set_init_ttl, &set_max_ttl, &set_port, &set_addr, &set_addr_iface, &set_probe_amt };
+		{ &set_init_ttl, &set_max_ttl, &set_port, &set_addr, &set_addr_iface, &set_probe_amt, &set_proto_icmp };
 
 int 				set_args(t_mgr *mgr, char *flag, char *setting)
 {
@@ -127,7 +133,7 @@ int 				set_args(t_mgr *mgr, char *flag, char *setting)
 	i = -1;
 	while (++i < OPTLEN)
 	{
-		if (ft_strncmp(g_args[i], flag, 2) == 0)
+		if (ft_strcmp(g_args[i], flag) == 0)
 		{
 			g_funcs[i](mgr, setting);
 			return (SUCCESS);

@@ -9,7 +9,7 @@
 #include "../libft/incl/net_ping.h"
 #include "../libft/incl/cnvrsn.h"
 
-# define OPTLEN (6)
+# define OPTLEN (7)
 # define DEF_WAIT_TIME (2)
 # define DEF_MAX_TTL (64)
 # define DEF_INIT_TTL (1)
