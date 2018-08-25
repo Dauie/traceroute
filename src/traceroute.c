@@ -196,13 +196,17 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int pro
 {
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
+	char 					revdnsstr[DOMAIN_NAME_LEN];
 
 	if (check_packet(mgr, resp_buff) == SUCCESS)
 	{
 		resp_addr = ((struct ip *)resp_buff)->ip_src;
 		if (prev_resp_addr.s_addr != resp_addr.s_addr)
-			printf("  (%s)", inet_ntoa(resp_addr));
-		printf("  %.3f ms", (float) time_diff_ms(&msg->recvd, &msg->sent));
+		{
+			ft_iptodom(resp_addr.s_addr, revdnsstr);
+			printf(" %s (%s)", revdnsstr, inet_ntoa(resp_addr));
+		}
+		printf(" %.3f ms", (float) time_diff_ms(&msg->recvd, &msg->sent));
 		print_specials(resp_buff);
 		prev_resp_addr = resp_addr;
 	}

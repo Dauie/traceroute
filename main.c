@@ -16,10 +16,11 @@ char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
 
 static void			useage(void)
 {
-	printf("Usage:\ttraceroute [-fmpsih]\n"
-				"\t[-f first-ttl][-m max-ttl][-p protocol]\n"
-				"\t[-s ip address][-s interface address]\n"
-				"\t[-q probe amount][-h help]... destination\n");
+	printf("Usage:\ttraceroute [-fmpsiIh] destination\n"
+				"\t[-f first-ttl][-m max-ttl][-p udp port]\n"
+				"\t[-s ip address][-i interface address]\n"
+				"\t[-I ICMP instead of UDP][-q probe amount]\n"
+				"\t[-h help]\n");
 	exit(SUCCESS);
 }
 
@@ -83,7 +84,7 @@ void 				set_probe_amt(t_mgr *mgr, char *nprobes)
 	}
 	if (mgr->nprobes > MAX_PROB_AMT)
 	{
-		dprintf(STDERR_FILENO, "no more than '%d' probes per hop", MAX_PROB_AMT);
+		dprintf(STDERR_FILENO, "traceroute: no more than '%d' probes per hop.\n", MAX_PROB_AMT);
 		exit(FAILURE);
 	}
 }
@@ -94,12 +95,12 @@ void 				set_addr_iface(t_mgr *mgr, char *iface)
 
 	if (!iface)
 	{
-		dprintf(STDERR_FILENO, "traceroute: no interface specified\n");
+		dprintf(STDERR_FILENO, "traceroute: no interface specified.\n");
 		useage();
 	}
 	if (!(addr.s_addr = ft_getifaceaddr(iface, NULL, FALSE)))
 	{
-		dprintf(STDERR_FILENO, "traceroute: Can't find interface '%s'\n",
+		dprintf(STDERR_FILENO, "traceroute: can't find interface '%s'.\n",
 				iface);
 		exit(FAILURE);
 	}
@@ -110,7 +111,7 @@ void 				set_addr(t_mgr *mgr, char *addr)
 {
 	if (ft_isaddrset(addr) == FAILURE)
 	{
-		dprintf(STDERR_FILENO, "traceroute: Cannot use '%s', not configured on host\n",
+		dprintf(STDERR_FILENO, "traceroute: cannot use '%s', not configured on host.\n",
 				addr);
 		exit(FAILURE);
 	}
@@ -135,7 +136,7 @@ int 				set_args(t_mgr *mgr, char *flag, char *setting)
 	}
 	if (i == OPTLEN)
 	{
-		dprintf(STDERR_FILENO, "traceroute: Invalid option -- '%c'\n", flag[1]);
+		dprintf(STDERR_FILENO, "traceroute: invalid option -- '%c'.\n", flag[1]);
 		useage();
 	}
 	return (FAILURE);
@@ -160,10 +161,10 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 		}
 		else
 		{
-			if (!(addr.s_addr = ft_domtoip(av[i], NULL, FALSE)))
+			if (!(addr.s_addr = ft_domtoip(av[i], NULL)))
 			{
 				dprintf(STDERR_FILENO, "traceroute: cannot resolve"
-						" '%s': Unknown host\n", av[i]);
+						" '%s': unknown host.\n", av[i]);
 				exit(FAILURE);
 			}
 			ft_strcpy(mgr->domain, av[i]);

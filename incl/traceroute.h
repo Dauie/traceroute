@@ -10,6 +10,7 @@
 #include "../libft/incl/cnvrsn.h"
 
 # define OPTLEN (6)
+
 # define DEF_WAIT_TIME (2)
 # define DEF_MAX_TTL (30)
 # define DEF_INIT_TTL (1)
@@ -45,24 +46,25 @@
 */
 
 /*
-**      Special output characters
+**   --Special output characters--
+**    -Output-       -Description-
 **      !N           Bad network.
-**      !H           Bad host
-**      !P           Bad protocol
-**      !!           Bad port
-**      !F           IP_DF caused drop
-**      !S           Src route failed
-**      !U           Unknown network
-**      !W           Unknown host
-**      !I           Src host isolated
-**      !A           Net denied by admin
-**      !Z           Host denied by admin
-**      !Q           Bad tos for net
-**      !T           Bad tos for host
-**      !X           Admin prohib
+**      !H           Bad host.
+**      !P           Bad protocol.
+**      !!           Bad port.
+**      !F           IP_DF caused drop.
+**      !S           Src route failed.
+**      !U           Unknown network.
+**      !W           Unknown host.
+**      !I           Src host isolated.
+**      !A           Net denied by admin.
+**      !Z           Host denied by admin.
+**      !Q           Bad tos for net.
+**      !T           Bad tos for host.
+**      !X           Admin prohib.
 **      !V           Host prec vio.
-**      !C           Precedence cut off
-**
+**      !C           Precedence cut off.
+**      *            Traceroute timeout exceeded.
 */
 typedef struct			s_flags
 {
