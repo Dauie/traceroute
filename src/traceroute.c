@@ -6,11 +6,10 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/18 13:46:00 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/24 15:24:15 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/25 15:14:56 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <netinet/ip_icmp.h>
 #include "../incl/traceroute.h"
 
 #define HEXDUMP_COLS 6
