@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <netinet/ip_icmp.h>
 #include "../incl/traceroute.h"
 
 #define HEXDUMP_COLS 6
@@ -145,7 +146,8 @@ int							icmppkt_check(int8_t *resp_buff, int pid, int seq)
 {
 	struct icmp				*icmp;
 
-	icmp = (struct icmp *)resp_buff + IPV4_HDRLEN;
+	icmp = (struct icmp *)(resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
+	//printf("resp_id:%d, resp_seq:%d, mgr->id:%d, mgr->seq:%d", icmp->icmp_hun.ih_idseq.icd_id, icmp->icmp_hun.ih_idseq.icd_seq, htons(pid), htons(seq));
 	if (icmp->icmp_hun.ih_idseq.icd_id == htons(pid) &&
 		icmp->icmp_hun.ih_idseq.icd_seq == htons(seq))
 		return (SUCCESS);
