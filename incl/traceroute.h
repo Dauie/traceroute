@@ -9,16 +9,16 @@
 #include "../libft/incl/net_ping.h"
 #include "../libft/incl/cnvrsn.h"
 
-# define OPTLEN (7)
+# define OPTLEN (6)
 # define DEF_WAIT_TIME (2)
-# define DEF_MAX_TTL (64)
+# define DEF_MAX_TTL (30)
 # define DEF_INIT_TTL (1)
 # define DEF_PROB_AMT (3)
-# define DEF_UDP_PORT (33434)
 # define MAX_PROB_AMT (10)
+# define DEF_UDP_PORT (33434)
 # define MSG_DATA "         4242~!@#$%^&*()_+12345678890-="
 
-/**
+/*
 ** -i -m -p -s -q -l -f -I
 ** -f : Set the initial time-to-live value used in outgoing probe packets.
 **      The default is 1, i.e., start with the first hop.
@@ -26,8 +26,8 @@
 **      probe packets. This is normally only useful on a multi-homed host.
 **      (See the -s flag for another way to do this.)
 ** -m : Set the max time-to-live (max number of hops) used in outgoing probe
-**      packets.  The default is net.inet.ip.ttl hops (the same default used for
-**      TCP connections).
+**      packets.The default is 30 hops (the same default used for
+**      ICMP connections).
 ** -p : Protocol specific. For UDP, sets the base port number used in
 **      probes (default is 33434).  traceroute hopes that nothing is listening
 **      on UDP ports base to base+nhops-1 at the destination host
@@ -40,10 +40,30 @@
 **      address to be something other than the IP address of the interface the
 **      probe packet is sent on.  If the IP address is not one of this machine's
 **      inter-face addresses, an error is returned and nothing is sent.
-** -q : Set the number of probes per ``ttl'' to nqueries (default is three probes).
+** -q : Set the number of probes per ``ttl'' (default is three probes).
 ** -I : Use ICMP ECHO instead of UDP datagrams.
-**/
+*/
 
+/*
+**      Special output characters
+**      !N           Bad network.
+**      !H           Bad host
+**      !P           Bad protocol
+**      !!           Bad port
+**      !F           IP_DF caused drop
+**      !S           Src route failed
+**      !U           Unknown network
+**      !W           Unknown host
+**      !I           Src host isolated
+**      !A           Net denied by admin
+**      !Z           Host denied by admin
+**      !Q           Bad tos for net
+**      !T           Bad tos for host
+**      !X           Admin prohib
+**      !V           Host prec vio.
+**      !C           Precedence cut off
+**
+*/
 typedef struct			s_flags
 {
 	uint8_t 			run: 1;

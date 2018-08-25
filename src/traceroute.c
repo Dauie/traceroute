@@ -148,8 +148,8 @@ int							icmppkt_check(int8_t *resp_buff, int pid, int seq)
 
 	icmp = (struct icmp *)(resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
 	//printf("resp_id:%d, resp_seq:%d, mgr->id:%d, mgr->seq:%d", icmp->icmp_hun.ih_idseq.icd_id, icmp->icmp_hun.ih_idseq.icd_seq, htons(pid), htons(seq));
-	if (icmp->icmp_hun.ih_idseq.icd_id == htons(pid) &&
-		icmp->icmp_hun.ih_idseq.icd_seq == htons(seq))
+	if (icmp->icmp_id== htons(pid) &&
+		icmp->icmp_seq == htons(seq))
 		return (SUCCESS);
 	return (FAILURE);
 }
@@ -173,6 +173,25 @@ int							check_packet(t_mgr *mgr, int8_t *resp_buff)
 		return (udppkt_check(resp_buff, mgr->udp_port, mgr->pid, mgr->ttl));
 }
 
+void						print_specials(int8_t *buff)
+{
+	struct icmp *icmp;
+	char unreach_specials[] = "NHP!FSUWIAZQTXVC";
+
+	icmp = (struct icmp *)(buff + IPV4_HDRLEN);
+	if (icmp->icmp_type == ICMP_TIMXCEED)
+		return;
+	else if (icmp->icmp_type == ICMP_UNREACH)
+	{
+		if (icmp->icmp_code <= 15)
+			printf(" !%c", unreach_specials[icmp->icmp_code]);
+		else
+			printf(" !%d", icmp->icmp_code);
+	}
+	else if (icmp->icmp_type == ICMP_SOURCEQUENCH)
+		printf(" !QNCH");
+}
+
 int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int probe)
 {
 	struct in_addr			resp_addr;
@@ -180,10 +199,11 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff, t_echopkt *msg, int pro
 
 	if (check_packet(mgr, resp_buff) == SUCCESS)
 	{
-		resp_addr = ((struct ip *) resp_buff)->ip_src;
+		resp_addr = ((struct ip *)resp_buff)->ip_src;
 		if (prev_resp_addr.s_addr != resp_addr.s_addr)
 			printf("  (%s)", inet_ntoa(resp_addr));
 		printf("  %.3f ms", (float) time_diff_ms(&msg->recvd, &msg->sent));
+		print_specials(resp_buff);
 		prev_resp_addr = resp_addr;
 	}
 	if (probe  >= mgr->nprobes)
@@ -249,8 +269,8 @@ int				traceroute(t_mgr *mgr)
 	ft_memset(&msg, 0, sizeof(t_echopkt));
 	initialize_echopacket(mgr, &msg);
 	pktlen = IPV4_HDRLEN + DEF_HDRLEN + msg.datalen;
-	printf("traceroute to %s (%s), %d hops max, %zu byte packets\n",
-		   mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen);
+	printf("traceroute to %s (%s), %d hops max, %zu byte %s packets\n",
+		   mgr->domain, inet_ntoa(mgr->to.sin_addr), mgr->max_ttl, pktlen,  mgr->flags.icmp == TRUE ? "icmp" : "udp");
 	ping_loop(mgr, &msg, pkt, pktlen);
 	free(msg.data);
 	return (SUCCESS);

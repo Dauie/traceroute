@@ -12,7 +12,7 @@
 
 #include "incl/traceroute.h"
 
-char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q", "-I"};
+char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
 
 static void			useage(void)
 {
@@ -21,12 +21,6 @@ static void			useage(void)
 				"\t[-s ip address][-s interface address]\n"
 				"\t[-q probe amount][-h help]... destination\n");
 	exit(SUCCESS);
-}
-
-void					set_proto_icmp(t_mgr *mgr, char *null)
-{
-	(void)null;
-	mgr->flags.icmp = TRUE;
 }
 
 void					set_init_ttl(t_mgr *mgr, char *ttl)
@@ -124,7 +118,7 @@ void 				set_addr(t_mgr *mgr, char *addr)
 }
 
 void (*g_funcs[])(t_mgr *, char *) =
-		{ &set_init_ttl, &set_max_ttl, &set_port, &set_addr, &set_addr_iface, &set_probe_amt, &set_proto_icmp };
+		{ &set_init_ttl, &set_max_ttl, &set_port, &set_addr, &set_addr_iface, &set_probe_amt };
 
 int 				set_args(t_mgr *mgr, char *flag, char *setting)
 {
@@ -157,12 +151,14 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 	{
 		if (ft_strncmp(av[i], "-h", 2) == 0)
 			useage();
+		else if (ft_strcmp(av[i], "-I") == 0)
+			mgr->flags.icmp = TRUE;
 		else if (av[i][0] == '-')
 		{
 			set_args(mgr, av[i], av[i + 1]);
-			i++;
+			++i;
 		}
-		else if (av[i][0] != '-' || ac == 2)
+		else
 		{
 			if (!(addr.s_addr = ft_domtoip(av[i], NULL, FALSE)))
 			{
