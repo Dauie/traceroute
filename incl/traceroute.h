@@ -1,13 +1,14 @@
 #ifndef TRACEROUTE_H
-#define TRACEROUTE_H
+# define TRACEROUTE_H
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <stdint.h>
+# include "../libft/incl/cnvrsn.h"
+# include "../libft/incl/net.h"
+# include "../libft/incl/net_ping.h"
+# include "../libft/incl/num.h"
 
-#include "../libft/incl/net.h"
-#include "../libft/incl/net_ping.h"
-#include "../libft/incl/cnvrsn.h"
+# include <stdio.h>
+# include <sys/types.h>
+# include <stdint.h>
 
 # define OPTLEN (6)
 
@@ -48,15 +49,16 @@
 /*
 **   --Special output characters--
 **    -Output-       -Description-
+**
 **      !N           Bad network.
 **      !H           Bad host.
 **      !P           Bad protocol.
 **      !!           Bad port.
 **      !F           IP_DF caused drop.
-**      !S           Src route failed.
+**      !S           Source route failed.
 **      !U           Unknown network.
 **      !W           Unknown host.
-**      !I           Src host isolated.
+**      !I           Source host isolated.
 **      !A           Net denied by admin.
 **      !Z           Host denied by admin.
 **      !Q           Bad tos for net.
@@ -64,6 +66,7 @@
 **      !X           Admin prohib.
 **      !V           Host prec vio.
 **      !C           Precedence cut off.
+**      !QN          Quench source. Reduce bandwidth.
 **      *            Traceroute timeout exceeded.
 */
 typedef struct			s_flags
@@ -89,6 +92,13 @@ typedef struct			s_manager
 
 }						t_mgr;
 
-int				traceroute(t_mgr *mgr);
+int						traceroute(t_mgr *mgr);
+int						recv_echo(t_mgr *mgr, t_echopkt *msg,
+							int8_t *respbuff, fd_set *readfds);
+int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen);
+int						handle_response(t_mgr *mgr, int8_t *resp_buff,
+											t_echopkt *msg, int probe);
+int						check_packet(t_mgr *mgr, int8_t *resp_buff);
+
 
 #endif

@@ -81,7 +81,9 @@ set(SOURCE_FILES
 		libft/src/net/ft_setsock_timeout.c
 		libft/src/net/ft_sockoptraw.c
 		libft/src/num/ft_numlen.c
+		libft/src/num/ft_timediff.c
 		libft/src/put/ft_errorexit.c
+		libft/src/put/ft_hexdump.c
 		libft/src/put/ft_putchar.c
 		libft/src/put/ft_putchar_fd.c
 		libft/src/put/ft_putclst.c
@@ -142,12 +144,15 @@ set(SOURCE_FILES
 		libft/src/tbl/ft_crafttbl.c
 		libft/src/tbl/ft_getenvar.c
 		libft/src/tbl/ft_itbllen.c
-    libft/src/tbl/ft_tbladdl.c
-    libft/src/tbl/ft_tbldel.c
+		libft/src/tbl/ft_tbladdl.c
+		libft/src/tbl/ft_tbldel.c
     libft/src/tbl/ft_tbldup.c
     libft/src/tbl/ft_tbllen.c
     libft/src/tbl/ft_tblrepline.c
     libft/src/tbl/ft_tblrmline.c
+    src/check_packet.c
+    src/handle_response.c
+    src/send_recv_echo.c
     src/traceroute.c
     main.c)
 
