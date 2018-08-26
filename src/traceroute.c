@@ -44,9 +44,9 @@ static int			ping_loop(t_mgr *mgr, t_echopkt *msg,
 	int8_t 			resp_buff[IP_MAXPACKET];
 	int 			probe;
 
-	probe = 0;
 	while (mgr->flags.run == TRUE && mgr->ttl <= mgr->max_ttl)
 	{
+		probe = 0;
 		printf(mgr->ttl <= 9 ? " %d " : "%d ", mgr->ttl);
 		while (probe++ < mgr->nprobes)
 		{
@@ -58,7 +58,6 @@ static int			ping_loop(t_mgr *mgr, t_echopkt *msg,
 			fflush(stdout);
 		}
 		printf("\n");
-		probe = 0;
 		mgr->ttl++;
 		update_echopkt(mgr, msg);
 		if (((struct ip *)resp_buff)->ip_src.s_addr == mgr->to.sin_addr.s_addr)

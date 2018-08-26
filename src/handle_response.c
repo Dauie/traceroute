@@ -44,9 +44,9 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff,
 		if (prev_resp_addr.s_addr != resp_addr.s_addr)
 		{
 			ft_iptodom(resp_addr.s_addr, revdnsstr);
-			printf(" %s (%s)", revdnsstr, inet_ntoa(resp_addr));
+			printf("  %s (%s)", revdnsstr, inet_ntoa(resp_addr));
 		}
-		printf(" %.3f ms", (float) ft_timediff_ms(&msg->recvd, &msg->sent));
+		printf("  %.3f ms", (float) ft_timediff_ms(&msg->recvd, &msg->sent));
 		print_specials(resp_buff);
 		prev_resp_addr = resp_addr;
 	}

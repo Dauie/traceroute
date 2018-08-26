@@ -154,11 +154,8 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 			useage();
 		else if (ft_strcmp(av[i], "-I") == 0)
 			mgr->flags.icmp = TRUE;
-		else if (av[i][0] == '-')
-		{
-			set_args(mgr, av[i], av[i + 1]);
-			++i;
-		}
+		else if (av[i][0] == '-' && i++)
+			set_args(mgr, av[i - 1], av[i]);
 		else
 		{
 			if (!(addr.s_addr = ft_domtoip(av[i], NULL)))
@@ -181,7 +178,7 @@ void				set_program_defaults(t_mgr *mgr)
 	mgr->flags.icmp = FALSE;
 	mgr->pid = getpid();
 	mgr->ttl = DEF_INIT_TTL;		/* 1 */
-	mgr->max_ttl = DEF_MAX_TTL;		/* 64 */
+	mgr->max_ttl = DEF_MAX_TTL;		/* 30 */
 	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
 	mgr->udp_port = DEF_UDP_PORT;	/* 33434 */
 	mgr->from.sin_port = (in_port_t)mgr->pid;
