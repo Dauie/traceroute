@@ -12,13 +12,8 @@
 
 #include "../incl/traceroute.h"
 
-static void			fill_packet(t_mgr *mgr, t_echopkt *msg,
-								int8_t *packet, size_t pktlen)
+static void			fill_packet(t_mgr *mgr, t_echopkt *msg, int8_t *packet)
 {
-	int8_t			*pkthead;
-	uint16_t		checksum;
-
-	pkthead = packet;
 	ft_memcpy(packet, &msg->iphdr, IPV4_HDRLEN);
 	packet += IPV4_HDRLEN;
 	if (mgr->flags.icmp == TRUE)
@@ -30,11 +25,6 @@ static void			fill_packet(t_mgr *mgr, t_echopkt *msg,
 	ft_memcpy(packet , &msg->sent, sizeof(struct timeval));
 	packet += sizeof(struct timeval);
 	ft_memcpy(packet , msg->data, msg->datalen);
-	checksum = ft_checksum(pkthead, pktlen);
-	if (mgr->flags.icmp == TRUE)
-		((struct icmp *)pkthead)->icmp_cksum = checksum;
-	else
-		((struct udphdr *)pkthead)->uh_sum = checksum;
 }
 
 static void			update_echopkt(t_mgr *mgr, t_echopkt *msg)
@@ -60,7 +50,7 @@ static int			ping_loop(t_mgr *mgr, t_echopkt *msg,
 		printf(mgr->ttl <= 9 ? " %d " : "%d ", mgr->ttl);
 		while (probe++ < mgr->nprobes)
 		{
-			fill_packet(mgr, msg, pkt, pktlen);
+			fill_packet(mgr, msg, pkt);
 			send_echo(mgr, pkt, pktlen);
 			ft_memset(resp_buff, 0, IP_MAXPACKET);
 			recv_echo(mgr, msg, resp_buff, &readfds);
