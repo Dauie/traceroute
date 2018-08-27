@@ -17,7 +17,7 @@ static int			icmppkt_check(int8_t *respbuff, int pid, int seq)
 	struct icmp		*icmp;
 
 	icmp = (struct icmp *)(respbuff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
-	if (icmp->icmp_id== htons(pid) &&
+	if (icmp->icmp_id == htons(pid) &&
 		icmp->icmp_seq == htons(seq))
 		return (SUCCESS);
 	return (FAILURE);

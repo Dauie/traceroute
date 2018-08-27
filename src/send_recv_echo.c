@@ -43,7 +43,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg,
 	else if (ret > 0 && FD_ISSET((uint)mgr->recv_sock, readfds))
 	{
 		if (recvfrom(mgr->recv_sock, respbuff, IP_MAXPACKET, 0,
-					 (struct sockaddr *)&mgr->from, &socklen) < 0)
+					(struct sockaddr *)&mgr->from, &socklen) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
 			exit(FAILURE);

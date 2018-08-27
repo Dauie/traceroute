@@ -6,122 +6,18 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/25 15:14:36 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/27 13:49:05 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "incl/traceroute.h"
 
-char		*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
+char	*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
 
-static void			useage(void)
-{
-	printf("Usage:\ttraceroute [-fmpsiIh] destination\n"
-				"\t[-f first-ttl][-m max-ttl][-p udp port]\n"
-				"\t[-s ip address][-i interface address]\n"
-				"\t[-I ICMP instead of UDP][-q probe amount]\n"
-				"\t[-h help]\n");
-	exit(SUCCESS);
-}
+void	(*g_funcs[])(t_mgr *, char *) = { &set_init_ttl, &set_max_ttl,
+	&set_port, &set_addr, &set_addr_iface, &set_probe_amt };
 
-void					set_init_ttl(t_mgr *mgr, char *ttl)
-{
-	if (!ttl)
-	{
-		dprintf(STDERR_FILENO, "traceroute: no initial ttl specified\n");
-		useage();
-	}
-	if (!(mgr->ttl = ft_atoi(ttl)))
-	{
-		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for initial ttl.\n",
-				ttl);
-		exit(FAILURE);
-	}
-}
-
-void 				set_port(t_mgr *mgr, char *port)
-{
-	if (!port)
-	{
-		dprintf(STDERR_FILENO, "traceroute: no port specified\n");
-		useage();
-	}
-	if (!(mgr->udp_port  = ft_atoi(port)))
-	{
-		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
-		exit(FAILURE);
-	}
-	mgr->to.sin_port = (in_port_t)mgr->udp_port;
-}
-
-void					set_max_ttl(t_mgr *mgr, char *ttl)
-{
-	if (!ttl)
-	{
-		dprintf(STDERR_FILENO, "traceroute: no max ttl specified\n");
-		useage();
-	}
-	if (!(mgr->max_ttl = ft_atoi(ttl)))
-	{
-		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for max ttl.\n",
-				ttl);
-		exit(FAILURE);
-	}
-}
-
-void 				set_probe_amt(t_mgr *mgr, char *nprobes)
-{
-	if (!nprobes)
-	{
-		dprintf(STDERR_FILENO, "traceroute: no probe amount specified\n");
-		useage();
-	}
-	if (!(mgr->nprobes = (uint)ft_atoi(nprobes)))
-	{
-		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for nprobe.\n",
-				nprobes);
-		exit(FAILURE);
-	}
-	if (mgr->nprobes > MAX_PROB_AMT)
-	{
-		dprintf(STDERR_FILENO, "traceroute: no more than '%d' probes per hop.\n", MAX_PROB_AMT);
-		exit(FAILURE);
-	}
-}
-
-void 				set_addr_iface(t_mgr *mgr, char *iface)
-{
-	struct in_addr	addr;
-
-	if (!iface)
-	{
-		dprintf(STDERR_FILENO, "traceroute: no interface specified.\n");
-		useage();
-	}
-	if (!(addr.s_addr = ft_getifaceaddr(iface, NULL, FALSE)))
-	{
-		dprintf(STDERR_FILENO, "traceroute: can't find interface '%s'.\n",
-				iface);
-		exit(FAILURE);
-	}
-	mgr->from.sin_addr = addr;
-}
-
-void 				set_addr(t_mgr *mgr, char *addr)
-{
-	if (ft_isaddrset(addr) == FAILURE)
-	{
-		dprintf(STDERR_FILENO, "traceroute: cannot use '%s', not configured on host.\n",
-				addr);
-		exit(FAILURE);
-	}
-	inet_pton(AF_INET, addr, &mgr->from.sin_addr);
-}
-
-void (*g_funcs[])(t_mgr *, char *) =
-		{ &set_init_ttl, &set_max_ttl, &set_port, &set_addr, &set_addr_iface, &set_probe_amt };
-
-int 				set_args(t_mgr *mgr, char *flag, char *setting)
+static int			set_args(t_mgr *mgr, char *flag, char *setting)
 {
 	int i;
 
@@ -136,16 +32,17 @@ int 				set_args(t_mgr *mgr, char *flag, char *setting)
 	}
 	if (i == OPTLEN)
 	{
-		dprintf(STDERR_FILENO, "traceroute: invalid option -- '%c'.\n", flag[1]);
+		dprintf(STDERR_FILENO, "traceroute: "
+				"invalid option -- '%c'.\n", flag[1]);
 		useage();
 	}
 	return (FAILURE);
 }
 
-int					parse_args(t_mgr *mgr, int ac, char **av)
+static int			parse_args(t_mgr *mgr, int ac, char **av)
 {
-	int i;
-	struct in_addr addr;
+	int				i;
+	struct in_addr	addr;
 
 	i = 0;
 	while (++i < ac)
@@ -171,23 +68,23 @@ int					parse_args(t_mgr *mgr, int ac, char **av)
 	return (SUCCESS);
 }
 
-void				set_program_defaults(t_mgr *mgr)
+static void			set_program_defaults(t_mgr *mgr)
 {
 	mgr->flags.run = TRUE;
 	mgr->flags.udp = TRUE;
 	mgr->flags.icmp = FALSE;
 	mgr->pid = getpid();
-	mgr->ttl = DEF_INIT_TTL;		/* 1 */
-	mgr->max_ttl = DEF_MAX_TTL;		/* 30 */
-	mgr->nprobes = DEF_PROB_AMT;	/* 3 */
-	mgr->udp_port = DEF_UDP_PORT;	/* 33434 */
+	mgr->ttl = DEF_INIT_TTL;
+	mgr->max_ttl = DEF_MAX_TTL;
+	mgr->nprobes = DEF_PROB_AMT;
+	mgr->udp_port = DEF_UDP_PORT;
 	mgr->from.sin_port = (in_port_t)mgr->pid;
-	mgr->to.sin_port =  DEF_UDP_PORT;
+	mgr->to.sin_port = DEF_UDP_PORT;
 	mgr->from.sin_family = AF_INET;
 	mgr->to.sin_family = AF_INET;
 }
 
-void				create_sock(t_mgr *mgr)
+static void			create_sock(t_mgr *mgr)
 {
 	mgr->send_sock = ft_makerawsock(mgr->flags.udp ?
 									IPPROTO_UDP : IPPROTO_ICMP);
@@ -204,7 +101,7 @@ void				create_sock(t_mgr *mgr)
 
 int					main(int ac, char **av)
 {
-	t_mgr	*mgr;
+	t_mgr			*mgr;
 
 	if (!(mgr = ft_memalloc(sizeof(t_mgr))))
 		return (FAILURE);

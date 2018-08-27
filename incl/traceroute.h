@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   traceroute.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/27 13:03:34 by rlutt             #+#    #+#             */
+/*   Updated: 2018/08/27 13:45:09 by rlutt            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef TRACEROUTE_H
 # define TRACEROUTE_H
 
@@ -18,7 +30,7 @@
 # define DEF_PROB_AMT (3)
 # define MAX_PROB_AMT (10)
 # define DEF_UDP_PORT (33434)
-# define MSG_DATA "         4242~!@#$%^&*()_+12345678890-="
+# define MSG_DATA "         4242~!@#$%^&*()_+1234567890-="
 
 /*
 ** -i -m -p -s -q -l -f -I
@@ -37,41 +49,45 @@
 **      route tracing).  If something is listening on a port in the default
 **      range, this option can be used to pick an unused port range.
 ** -s : Use the following IP address (which must be given as an IP number,
-**      not a hostname) as the source address in outgoing probe packets.  On hosts
-**      with more than one IP address, this option can be used to force the source
-**      address to be something other than the IP address of the interface the
-**      probe packet is sent on.  If the IP address is not one of this machine's
-**      inter-face addresses, an error is returned and nothing is sent.
+**      not a hostname) as the source address in outgoing probe packets.
+**      On hosts with more than one IP address, this option can be used
+**      to force the source address to be something other than the IP
+**      address of the interface the probe packet is sent on.
+**      If the IP address is not one of this machine's inter-face addresses,
+**      an error is returned and nothing is sent.
 ** -q : Set the number of probes per ``ttl'' (default is three probes).
 ** -I : Use ICMP ECHO instead of UDP datagrams.
 */
 
+# define SPECIAL_OUTPUT "NHP!FSUWIAZQTXVC"
+
 /*
 **   --Special output characters--
-**    -Output-       -Description-
+**    -Output-         -Description-
 **
-**      !N           Bad network.
-**      !H           Bad host.
-**      !P           Bad protocol.
-**      !!           Bad port.
-**      !F           IP_DF caused drop.
-**      !S           Source route failed.
-**      !U           Unknown network.
-**      !W           Unknown host.
-**      !I           Source host isolated.
-**      !A           Net denied by admin.
-**      !Z           Host denied by admin.
-**      !Q           Bad tos for net.
-**      !T           Bad tos for host.
-**      !X           Admin prohib.
-**      !V           Host prec vio.
-**      !C           Precedence cut off.
-**      !QN          Quench source. Reduce bandwidth.
-**      *            Traceroute timeout exceeded.
+**      !N              Bad network.
+**      !H              Bad host.
+**      !P              Bad protocol.
+**      !!              Bad port.
+**      !F              IP_DF caused drop.
+**      !S              Source route failed.
+**      !U              Unknown network.
+**      !W              Unknown host.
+**      !I              Source host isolated.
+**      !A              Net denied by admin.
+**      !Z              Host denied by admin.
+**      !Q              Bad tos for net.
+**      !T              Bad tos for host.
+**      !X              Admin prohib.
+**      !V              Host prec vio.
+**      !C              Precedence cut off.
+**      !QN             Quench source. Reduce bandwidth.
+**      *               Traceroute timeout exceeded.
 */
+
 typedef struct			s_flags
 {
-	uint8_t 			run: 1;
+	uint8_t				run: 1;
 	uint8_t				icmp: 1;
 	uint8_t				udp: 1;
 }						t_flags;
@@ -89,16 +105,22 @@ typedef struct			s_manager
 	int					recv_sock;
 	struct sockaddr_in	from;
 	struct sockaddr_in	to;
-
 }						t_mgr;
 
-int						traceroute(t_mgr *mgr);
-int						recv_echo(t_mgr *mgr, t_echopkt *msg,
-							int8_t *respbuff, fd_set *readfds);
-int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen);
+int						check_packet(t_mgr *mgr, int8_t *resp_buff);
 int						handle_response(t_mgr *mgr, int8_t *resp_buff,
 											t_echopkt *msg, int probe);
-int						check_packet(t_mgr *mgr, int8_t *resp_buff);
 
+int						recv_echo(t_mgr *mgr, t_echopkt *msg,
+									 int8_t *respbuff, fd_set *readfds);
+int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen);
+void					set_init_ttl(t_mgr *mgr, char *ttl);
+void 					set_addr(t_mgr *mgr, char *addr);
+void 					set_addr_iface(t_mgr *mgr, char *iface);
+void					set_max_ttl(t_mgr *mgr, char *ttl);
+void 					set_port(t_mgr *mgr, char *port);
+void 					set_probe_amt(t_mgr *mgr, char *nprobes);
+void					useage(void);
+int						traceroute(t_mgr *mgr);
 
 #endif

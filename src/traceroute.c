@@ -17,14 +17,14 @@ static void			fill_packet(t_mgr *mgr, t_echopkt *msg, int8_t *packet)
 	ft_memcpy(packet, &msg->iphdr, IPV4_HDRLEN);
 	packet += IPV4_HDRLEN;
 	if (mgr->flags.icmp == TRUE)
-		ft_memcpy(packet , &msg->phdr.icmp, ICMP_HDRLEN);
+		ft_memcpy(packet, &msg->phdr.icmp, ICMP_HDRLEN);
 	else
 		ft_memcpy(packet, &msg->phdr.udp, UDP_HDRLEN);
 	packet += DEF_HDRLEN;
 	gettimeofday(&msg->sent, NULL);
-	ft_memcpy(packet , &msg->sent, sizeof(struct timeval));
+	ft_memcpy(packet, &msg->sent, sizeof(struct timeval));
 	packet += sizeof(struct timeval);
-	ft_memcpy(packet , msg->data, msg->datalen);
+	ft_memcpy(packet, msg->data, msg->datalen);
 }
 
 static void			update_echopkt(t_mgr *mgr, t_echopkt *msg)
@@ -41,8 +41,8 @@ static int			ping_loop(t_mgr *mgr, t_echopkt *msg,
 								int8_t *pkt, size_t pktlen)
 {
 	fd_set			readfds;
-	int8_t 			resp_buff[IP_MAXPACKET];
-	int 			probe;
+	int8_t			resp_buff[IP_MAXPACKET];
+	int				probe;
 
 	while (mgr->flags.run == TRUE && mgr->ttl <= mgr->max_ttl)
 	{
@@ -66,7 +66,7 @@ static int			ping_loop(t_mgr *mgr, t_echopkt *msg,
 	return (SUCCESS);
 }
 
-static int 			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
+static int			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
 {
 	if (!(msg->data = (uint8_t *)ft_strdup(MSG_DATA)))
 		return (FAILURE);

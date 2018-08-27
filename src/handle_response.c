@@ -15,15 +15,14 @@
 static void					print_specials(int8_t *buff)
 {
 	struct icmp				*icmp;
-	char unreach_specials[] = "NHP!FSUWIAZQTXVC";
 
 	icmp = (struct icmp *)(buff + IPV4_HDRLEN);
 	if (icmp->icmp_type == ICMP_TIMXCEED)
-		return;
+		return ;
 	else if (icmp->icmp_type == ICMP_UNREACH)
 	{
 		if (icmp->icmp_code <= 15)
-			printf(" !%c", unreach_specials[icmp->icmp_code]);
+			printf(" !%c", SPECIAL_OUTPUT[icmp->icmp_code]);
 		else
 			printf(" !%d", icmp->icmp_code);
 	}
@@ -32,11 +31,11 @@ static void					print_specials(int8_t *buff)
 }
 
 int							handle_response(t_mgr *mgr, int8_t *resp_buff,
-											   t_echopkt *msg, int probe)
+											t_echopkt *msg, int probe)
 {
 	struct in_addr			resp_addr;
 	static struct in_addr	prev_resp_addr;
-	char 					revdnsstr[DOMAIN_NAME_LEN];
+	char					revdnsstr[DOMAIN_NAME_LEN];
 
 	if (check_packet(mgr, resp_buff) == SUCCESS)
 	{
