@@ -72,7 +72,7 @@ static int 			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
 		return (FAILURE);
 	msg->datalen = (u_short)ft_strlen(MSG_DATA) + sizeof(struct timeval);
 	update_echopkt(mgr, msg);
-	ft_setip_dstsrc(&msg->iphdr,  &mgr->from.sin_addr, &mgr->to.sin_addr);
+	ft_setip_dstsrc(&msg->iphdr, &mgr->from.sin_addr, &mgr->to.sin_addr);
 	return (SUCCESS);
 }
 

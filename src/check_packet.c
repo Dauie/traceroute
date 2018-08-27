@@ -12,9 +12,9 @@
 
 #include "../incl/traceroute.h"
 
-static int		icmppkt_check(int8_t *respbuff, int pid, int seq)
+static int			icmppkt_check(int8_t *respbuff, int pid, int seq)
 {
-	struct icmp	*icmp;
+	struct icmp		*icmp;
 
 	icmp = (struct icmp *)(respbuff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
 	if (icmp->icmp_id== htons(pid) &&
@@ -23,17 +23,18 @@ static int		icmppkt_check(int8_t *respbuff, int pid, int seq)
 	return (FAILURE);
 }
 
-static int		udppkt_check(int8_t *resp_buff, int udp_port, int pid, int seq)
+static int			udppkt_check(int8_t *respbuff, int udp_port,
+								int pid, int seq)
 {
-	struct udphdr			*udp;
+	struct udphdr	*udp;
 
-	udp = (struct udphdr *)(resp_buff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
+	udp = (struct udphdr *)(respbuff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
 	if (udp->uh_dport == htons(udp_port) && udp->uh_sport == htons(pid + seq))
 		return (SUCCESS);
 	return (FAILURE);
 }
 
-int				check_packet(t_mgr *mgr, int8_t *resp_buff)
+int					check_packet(t_mgr *mgr, int8_t *resp_buff)
 {
 	if (mgr->flags.icmp == TRUE)
 		return (icmppkt_check(resp_buff, mgr->pid, mgr->ttl));

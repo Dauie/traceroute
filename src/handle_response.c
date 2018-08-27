@@ -12,9 +12,9 @@
 
 #include "../incl/traceroute.h"
 
-static void						print_specials(int8_t *buff)
+static void					print_specials(int8_t *buff)
 {
-	struct icmp *icmp;
+	struct icmp				*icmp;
 	char unreach_specials[] = "NHP!FSUWIAZQTXVC";
 
 	icmp = (struct icmp *)(buff + IPV4_HDRLEN);
@@ -46,11 +46,11 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff,
 			ft_iptodom(resp_addr.s_addr, revdnsstr);
 			printf("  %s (%s)", revdnsstr, inet_ntoa(resp_addr));
 		}
-		printf("  %.3f ms", (float) ft_timediff_ms(&msg->recvd, &msg->sent));
+		printf("  %.3f ms", (float)ft_timediff_ms(&msg->recvd, &msg->sent));
 		print_specials(resp_buff);
 		prev_resp_addr = resp_addr;
 	}
-	if (probe  >= mgr->nprobes)
+	if (probe >= mgr->nprobes)
 		prev_resp_addr.s_addr = 0;
 	return (FAILURE);
 }

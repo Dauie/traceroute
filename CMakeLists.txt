@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+# cmake_minimum_required(VERSION <specify CMake version here>)
 project(traceroute C)
 
 set(CMAKE_C_STANDARD 11)
