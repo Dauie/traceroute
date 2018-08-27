@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 13:03:34 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/27 13:45:09 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/27 13:53:26 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,16 +110,15 @@ typedef struct			s_manager
 int						check_packet(t_mgr *mgr, int8_t *resp_buff);
 int						handle_response(t_mgr *mgr, int8_t *resp_buff,
 											t_echopkt *msg, int probe);
-
 int						recv_echo(t_mgr *mgr, t_echopkt *msg,
-									 int8_t *respbuff, fd_set *readfds);
+									int8_t *respbuff, fd_set *readfds);
 int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen);
 void					set_init_ttl(t_mgr *mgr, char *ttl);
-void 					set_addr(t_mgr *mgr, char *addr);
-void 					set_addr_iface(t_mgr *mgr, char *iface);
+void					set_addr(t_mgr *mgr, char *addr);
+void					set_addr_iface(t_mgr *mgr, char *iface);
 void					set_max_ttl(t_mgr *mgr, char *ttl);
-void 					set_port(t_mgr *mgr, char *port);
-void 					set_probe_amt(t_mgr *mgr, char *nprobes);
+void					set_port(t_mgr *mgr, char *port);
+void					set_probe_amt(t_mgr *mgr, char *nprobes);
 void					useage(void);
 int						traceroute(t_mgr *mgr);
 

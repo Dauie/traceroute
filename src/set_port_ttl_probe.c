@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 13:38:33 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/27 13:41:55 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/27 13:43:21 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void				set_max_ttl(t_mgr *mgr, char *ttl)
 	}
 }
 
-void 				set_port(t_mgr *mgr, char *port)
+void				set_port(t_mgr *mgr, char *port)
 {
 	if (!port)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no port specified\n");
 		useage();
 	}
-	if (!(mgr->udp_port  = ft_atoi(port)))
+	if (!(mgr->udp_port = ft_atoi(port)))
 	{
 		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
 		exit(FAILURE);
@@ -57,7 +57,7 @@ void 				set_port(t_mgr *mgr, char *port)
 	mgr->to.sin_port = (in_port_t)mgr->udp_port;
 }
 
-void 				set_probe_amt(t_mgr *mgr, char *nprobes)
+void				set_probe_amt(t_mgr *mgr, char *nprobes)
 {
 	if (!nprobes)
 	{
