@@ -5,7 +5,7 @@ CC = gcc
 
 SRCDIR = src
 
-CFLAGS  = -Wall -Werror -Wextra -g
+CFLAGS  = -Wall -Werror -Wextra
 
 INCL = -I incl
 

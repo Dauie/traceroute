@@ -17,10 +17,8 @@ static int			icmppkt_check(int8_t *respbuff, int pid, int seq)
 	struct icmp		*icmp;
 
 	icmp = (struct icmp *)(respbuff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
-	if (icmp->icmp_id == htons(pid) &&
-		icmp->icmp_seq == htons(seq))
-		return (SUCCESS);
-	return (FAILURE);
+	return (icmp->icmp_id == htons(pid) &&
+		icmp->icmp_seq == htons(seq));
 }
 
 static int			udppkt_check(int8_t *respbuff, int udp_port,
@@ -29,9 +27,8 @@ static int			udppkt_check(int8_t *respbuff, int udp_port,
 	struct udphdr	*udp;
 
 	udp = (struct udphdr *)(respbuff + IPV4_HDRLEN + ICMP_HDRLEN + IPV4_HDRLEN);
-	if (udp->uh_dport == htons(udp_port) && udp->uh_sport == htons(pid + seq))
-		return (SUCCESS);
-	return (FAILURE);
+	return (udp->uh_dport == htons(udp_port) &&
+			udp->uh_sport == htons(pid + seq));
 }
 
 int					check_packet(t_mgr *mgr, int8_t *resp_buff)
