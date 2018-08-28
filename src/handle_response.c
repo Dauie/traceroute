@@ -37,7 +37,7 @@ int							handle_response(t_mgr *mgr, int8_t *resp_buff,
 	static struct in_addr	prev_resp_addr;
 	char					revdnsstr[DOMAIN_NAME_LEN];
 
-	if (check_packet(mgr, resp_buff) == SUCCESS)
+	if (check_packet(mgr, resp_buff))
 	{
 		resp_addr = ((struct ip *)resp_buff)->ip_src;
 		if (prev_resp_addr.s_addr != resp_addr.s_addr)
