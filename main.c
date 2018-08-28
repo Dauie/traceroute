@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/27 13:49:05 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/27 13:49:19 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ int					main(int ac, char **av)
 		useage();
 	set_program_defaults(mgr);
 	parse_args(mgr, ac, av);
+	if (!(mgr->to.sin_addr.s_addr))
+	{
+		dprintf(STDERR_FILENO, "traceroute: destination not specified.\n");
+		useage();
+	}
 	create_sock(mgr);
 	traceroute(mgr);
 	free(mgr);

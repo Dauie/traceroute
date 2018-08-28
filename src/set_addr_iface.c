@@ -6,7 +6,7 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 13:42:16 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/27 13:54:12 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/27 13:55:38 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ void				set_addr_iface(t_mgr *mgr, char *iface)
 
 void				set_addr(t_mgr *mgr, char *addr)
 {
+	if (!addr)
+	{
+		dprintf(STDERR_FILENO, "traceroute: no address specified.\n");
+		useage();
+	}
 	if (ft_isaddrset(addr) == FAILURE)
 	{
 		dprintf(STDERR_FILENO, "traceroute: cannot use '%s',"
