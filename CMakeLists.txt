@@ -1,9 +1,12 @@
-cmake_minimum_required(VERSION 3.6)
-project(traceroute)
+cmake_minimum_required(VERSION 3.10)
+project(traceroute C)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES
+include_directories(incl)
+include_directories(libft/incl)
+
+add_executable(traceroute
 		incl/traceroute.h
 		libft/incl/bool.h
 		libft/incl/char.h
@@ -150,15 +153,13 @@ set(SOURCE_FILES
 		libft/src/tbl/ft_tbldel.c
 		libft/src/tbl/ft_tbldup.c
 		libft/src/tbl/ft_tbllen.c
-    libft/src/tbl/ft_tblrepline.c
-    libft/src/tbl/ft_tblrmline.c
-    src/check_packet.c
-    src/handle_response.c
-    src/send_recv_echo.c
-    src/set_addr_iface.c
-    src/set_port_ttl_probe.c
-    src/traceroute.c
-    src/useage.c
-    main.c)
-
-add_executable(traceroute ${SOURCE_FILES})
+		libft/src/tbl/ft_tblrepline.c
+		libft/src/tbl/ft_tblrmline.c
+		src/check_packet.c
+		src/handle_response.c
+		src/send_recv_echo.c
+		src/set_addr_iface.c
+		src/set_port_ttl_probe.c
+		src/traceroute.c
+		src/useage.c
+		main.c)

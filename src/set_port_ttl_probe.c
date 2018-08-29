@@ -19,7 +19,7 @@ void				set_init_ttl(t_mgr *mgr, char *ttl)
 		dprintf(STDERR_FILENO, "traceroute: no initial ttl specified\n");
 		useage();
 	}
-	if (!(mgr->ttl = ft_atoi(ttl)))
+	if ((mgr->ttl = ft_atoi(ttl)) <= 0)
 	{
 		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for initial ttl.\n",
 				ttl);
