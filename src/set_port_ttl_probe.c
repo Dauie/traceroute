@@ -34,7 +34,7 @@ void				set_max_ttl(t_mgr *mgr, char *ttl)
 		dprintf(STDERR_FILENO, "traceroute: no max ttl specified\n");
 		useage();
 	}
-	if (!(mgr->max_ttl = ft_atoi(ttl)))
+	if ((mgr->max_ttl = ft_atoi(ttl)) <= 0)
 	{
 		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for max ttl.\n",
 				ttl);
@@ -49,7 +49,7 @@ void				set_port(t_mgr *mgr, char *port)
 		dprintf(STDERR_FILENO, "traceroute: no port specified\n");
 		useage();
 	}
-	if (!(mgr->udp_port = ft_atoi(port)))
+	if ((mgr->udp_port = ft_atoi(port)) <= 0)
 	{
 		dprintf(STDERR_FILENO, "traceroute: Error bad port specified\n");
 		exit(FAILURE);
@@ -64,7 +64,7 @@ void				set_probe_amt(t_mgr *mgr, char *nprobes)
 		dprintf(STDERR_FILENO, "traceroute: no probe amount specified\n");
 		useage();
 	}
-	if (!(mgr->nprobes = (uint)ft_atoi(nprobes)))
+	if ((mgr->nprobes = (uint)ft_atoi(nprobes)) <= 0)
 	{
 		dprintf(STDERR_FILENO, "traceroute: '%s' bad value for nprobe.\n",
 				nprobes);
