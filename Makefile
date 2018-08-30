@@ -9,13 +9,9 @@ CFLAGS  = -Wall -Werror -Wextra
 
 INCL = -I incl
 
-LIBFT_INCL = -I./libft/incl
-
 LIBFT = ./libft/libftprintf.a
 
-MAIN = main.c
-
-SRC = traceroute.c send_recv_echo.c check_packet.c handle_response.c
+SRC = main.c traceroute.c send_recv_echo.c check_packet.c handle_response.c
 SRC += set_port_ttl_probe.c set_addr_iface.c useage.c
 
 SRCFILES = $(addprefix $(SRCDIR)/, $(SRC))
@@ -24,7 +20,7 @@ RM = rm -fr
 
 $(NAME):
 		$(MAKE) -C ./libft/ re
-		$(CC) $(CFLAGS) $(INCL) $(MAIN) $(SRCFILES) $(LIBFT) -o $(NAME)
+		$(CC) $(CFLAGS) $(INCL) $(SRCFILES) $(LIBFT) -o $(NAME)
 
 clean:
 		$(RM) $(OBJDIR)

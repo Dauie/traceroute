@@ -6,11 +6,11 @@
 /*   By: rlutt <rlutt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/17 20:01:41 by rlutt             #+#    #+#             */
-/*   Updated: 2018/08/27 13:49:19 by rlutt            ###   ########.fr       */
+/*   Updated: 2018/08/29 20:54:15 by rlutt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incl/traceroute.h"
+#include "../incl/traceroute.h"
 
 char	*g_args[] = {"-f", "-m", "-p", "-s", "-i", "-q"};
 
