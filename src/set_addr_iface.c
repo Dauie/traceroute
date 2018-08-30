@@ -19,7 +19,7 @@ void				set_addr_iface(t_mgr *mgr, char *iface)
 	if (!iface)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no interface specified.\n");
-		useage();
+		exit(FAILURE);
 	}
 	if (!(addr.s_addr = ft_getifaceaddr(iface, NULL, FALSE)))
 	{
@@ -35,7 +35,7 @@ void				set_addr(t_mgr *mgr, char *addr)
 	if (!addr)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no address specified.\n");
-		useage();
+		exit(FAILURE);
 	}
 	if (ft_isaddrset(addr) == FAILURE)
 	{

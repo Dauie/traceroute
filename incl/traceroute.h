@@ -107,12 +107,12 @@ typedef struct			s_manager
 	struct sockaddr_in	to;
 }						t_mgr;
 
-int						check_packet(t_mgr *mgr, int8_t *resp_buff);
-int						handle_response(t_mgr *mgr, int8_t *resp_buff,
+int						check_packet(t_mgr *mgr, uint8_t *resp_buff);
+int						handle_response(t_mgr *mgr, uint8_t *resp_buff,
 											t_echopkt *msg, int probe);
 int						recv_echo(t_mgr *mgr, t_echopkt *msg,
-									int8_t *respbuff, fd_set *readfds);
-int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen);
+									uint8_t *respbuff, fd_set *readfds);
+int						send_echo(t_mgr *mgr, uint8_t *pkt, size_t pktlen);
 void					set_init_ttl(t_mgr *mgr, char *ttl);
 void					set_addr(t_mgr *mgr, char *addr);
 void					set_addr_iface(t_mgr *mgr, char *iface);

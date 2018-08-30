@@ -12,7 +12,7 @@
 
 #include "../incl/traceroute.h"
 
-int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
+int						send_echo(t_mgr *mgr, uint8_t *pkt, size_t pktlen)
 {
 	if (sendto(mgr->send_sock, pkt, pktlen, 0,
 			(struct sockaddr *)&mgr->to, sizeof(struct sockaddr)) < 0)
@@ -24,7 +24,7 @@ int						send_echo(t_mgr *mgr, int8_t *pkt, size_t pktlen)
 }
 
 int						recv_echo(t_mgr *mgr, t_echopkt *msg,
-									int8_t *respbuff, fd_set *readfds)
+									uint8_t *respbuff, fd_set *readfds)
 {
 	ssize_t				ret;
 	struct timeval		timeout;

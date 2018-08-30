@@ -12,7 +12,7 @@
 
 #include "../incl/traceroute.h"
 
-static void			fill_packet(t_mgr *mgr, t_echopkt *msg, int8_t *packet)
+static void			fill_packet(t_mgr *mgr, t_echopkt *msg, uint8_t *packet)
 {
 	ft_memcpy(packet, &msg->iphdr, IPV4_HDRLEN);
 	packet += IPV4_HDRLEN;
@@ -38,10 +38,10 @@ static void			update_echopkt(t_mgr *mgr, t_echopkt *msg)
 }
 
 static int			ping_loop(t_mgr *mgr, t_echopkt *msg,
-								int8_t *pkt, size_t pktlen)
+								uint8_t *pkt, size_t pktlen)
 {
 	fd_set			readfds;
-	int8_t			resp_buff[IP_MAXPACKET];
+	uint8_t			resp_buff[IP_MAXPACKET];
 	int				probe;
 
 	while (mgr->flags.run == TRUE && mgr->ttl <= mgr->max_ttl)
@@ -78,7 +78,7 @@ static int			initialize_echopacket(t_mgr *mgr, t_echopkt *msg)
 
 int					traceroute(t_mgr *mgr)
 {
-	int8_t			pkt[IP_MAXPACKET];
+	uint8_t			pkt[IP_MAXPACKET];
 	size_t			pktlen;
 	t_echopkt		msg;
 

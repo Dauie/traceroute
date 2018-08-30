@@ -17,7 +17,7 @@ void				set_init_ttl(t_mgr *mgr, char *ttl)
 	if (!ttl)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no initial ttl specified\n");
-		useage();
+		exit(FAILURE);
 	}
 	if ((mgr->ttl = ft_atoi(ttl)) <= 0)
 	{
@@ -32,7 +32,7 @@ void				set_max_ttl(t_mgr *mgr, char *ttl)
 	if (!ttl)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no max ttl specified\n");
-		useage();
+		exit(FAILURE);
 	}
 	if ((mgr->max_ttl = ft_atoi(ttl)) <= 0)
 	{
@@ -47,7 +47,7 @@ void				set_port(t_mgr *mgr, char *port)
 	if (!port)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no port specified\n");
-		useage();
+		exit(FAILURE);
 	}
 	if ((mgr->udp_port = ft_atoi(port)) <= 0)
 	{
@@ -62,7 +62,7 @@ void				set_probe_amt(t_mgr *mgr, char *nprobes)
 	if (!nprobes)
 	{
 		dprintf(STDERR_FILENO, "traceroute: no probe amount specified\n");
-		useage();
+		exit(FAILURE);
 	}
 	if ((mgr->nprobes = (uint)ft_atoi(nprobes)) <= 0)
 	{

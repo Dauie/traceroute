@@ -12,7 +12,7 @@
 
 #include "../incl/traceroute.h"
 
-static int			icmppkt_check(int8_t *respbuff, int pid, int seq)
+static int			icmppkt_check(uint8_t *respbuff, int pid, int seq)
 {
 	struct icmp		*icmp;
 
@@ -21,7 +21,7 @@ static int			icmppkt_check(int8_t *respbuff, int pid, int seq)
 		icmp->icmp_seq == htons(seq));
 }
 
-static int			udppkt_check(int8_t *respbuff, int udp_port,
+static int			udppkt_check(uint8_t *respbuff, int udp_port,
 								int pid, int seq)
 {
 	struct udphdr	*udp;
@@ -31,7 +31,7 @@ static int			udppkt_check(int8_t *respbuff, int udp_port,
 			udp->uh_sport == htons(pid + seq));
 }
 
-int					check_packet(t_mgr *mgr, int8_t *resp_buff)
+int					check_packet(t_mgr *mgr, uint8_t *resp_buff)
 {
 	if (mgr->flags.icmp == TRUE)
 		return (icmppkt_check(resp_buff, mgr->pid, mgr->ttl));

@@ -12,7 +12,7 @@
 
 #include "../incl/traceroute.h"
 
-static void					print_specials(int8_t *buff)
+static void					print_specials(uint8_t *buff)
 {
 	struct icmp				*icmp;
 
@@ -30,7 +30,7 @@ static void					print_specials(int8_t *buff)
 		printf(" !QN");
 }
 
-int							handle_response(t_mgr *mgr, int8_t *resp_buff,
+int							handle_response(t_mgr *mgr, uint8_t *resp_buff,
 											t_echopkt *msg, int probe)
 {
 	struct in_addr			resp_addr;
