@@ -89,7 +89,7 @@ static void			create_sock(t_mgr *mgr)
 	mgr->send_sock = ft_makerawsock(mgr->flags.udp ?
 									IPPROTO_UDP : IPPROTO_ICMP);
 	mgr->recv_sock = ft_makerawsock(IPPROTO_ICMP);
-	ft_sock_hdrincl(mgr->send_sock);
+	ft_setsock_hdrincl(mgr->send_sock);
 	if (mgr->flags.udp == TRUE &&
 		bind(mgr->send_sock,
 			(struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
