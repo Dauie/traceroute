@@ -1,12 +1,9 @@
-cmake_minimum_required(VERSION 3.10)
-project(traceroute C)
+cmake_minimum_required(VERSION 3.6)
+project(traceroute)
 
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
 
-include_directories(incl)
-include_directories(libft/incl)
-
-add_executable(traceroute
+set(SOURCE_FILES
 		incl/traceroute.h
 		libft/incl/bool.h
 		libft/incl/char.h
@@ -155,11 +152,167 @@ add_executable(traceroute
 		libft/src/tbl/ft_tbllen.c
 		libft/src/tbl/ft_tblrepline.c
 		libft/src/tbl/ft_tblrmline.c
+		ping/incl/ping.h
+		ping/libft/incl/bool.h
+		ping/libft/incl/char.h
+		ping/libft/incl/cnvrsn.h
+		ping/libft/incl/gnl.h
+		ping/libft/incl/lst.h
+		ping/libft/incl/mem.h
+		ping/libft/incl/net.h
+		ping/libft/incl/net_ping.h
+		ping/libft/incl/num.h
+		ping/libft/incl/printf.h
+		ping/libft/incl/put.h
+		ping/libft/incl/return_types.h
+		ping/libft/incl/str.h
+		ping/libft/incl/tbl.h
+		ping/libft/src/char/ft_isalnum.c
+		ping/libft/src/char/ft_isalpha.c
+		ping/libft/src/char/ft_isascii.c
+		ping/libft/src/char/ft_isdigit.c
+		ping/libft/src/char/ft_islower.c
+		ping/libft/src/char/ft_isprint.c
+		ping/libft/src/char/ft_isspc.c
+		ping/libft/src/char/ft_isupper.c
+		ping/libft/src/cnvrsn/ft_atoi.c
+		ping/libft/src/cnvrsn/ft_itoa.c
+		ping/libft/src/cnvrsn/ft_itoabse.c
+		ping/libft/src/ft_printf/ft_printf.c
+		ping/libft/src/ft_printf/pf_cast_di.c
+		ping/libft/src/ft_printf/pf_cast_oux.c
+		ping/libft/src/ft_printf/pf_ihelp.c
+		ping/libft/src/ft_printf/pf_initstructs.c
+		ping/libft/src/ft_printf/pf_is.c
+		ping/libft/src/ft_printf/pf_itoabse.c
+		ping/libft/src/ft_printf/pf_mod.c
+		ping/libft/src/ft_printf/pf_print_c.c
+		ping/libft/src/ft_printf/pf_print_i.c
+		ping/libft/src/ft_printf/pf_print_o.c
+		ping/libft/src/ft_printf/pf_print_p.c
+		ping/libft/src/ft_printf/pf_print_perc.c
+		ping/libft/src/ft_printf/pf_print_s.c
+		ping/libft/src/ft_printf/pf_print_x.c
+		ping/libft/src/ft_printf/pf_putchar.c
+		ping/libft/src/ft_printf/pf_puterror.c
+		ping/libft/src/ft_printf/pf_putnbr.c
+		ping/libft/src/ft_printf/pf_putstr.c
+		ping/libft/src/ft_printf/pf_tick.c
+		ping/libft/src/ft_printf/pf_typechr.c
+		ping/libft/src/ft_printf/pf_width.c
+		ping/libft/src/gnl/gnl.c
+		ping/libft/src/lst/ft_lstadd.c
+		ping/libft/src/lst/ft_lstdel.c
+		ping/libft/src/lst/ft_lstdelone.c
+		ping/libft/src/lst/ft_lstdup.c
+		ping/libft/src/lst/ft_lsteadd.c
+		ping/libft/src/lst/ft_lstiter.c
+		ping/libft/src/lst/ft_lstlen.c
+		ping/libft/src/lst/ft_lstmap.c
+		ping/libft/src/lst/ft_lstnew.c
+		ping/libft/src/lst/ft_lstnewstak.c
+		ping/libft/src/mem/ft_bzero.c
+		ping/libft/src/mem/ft_memalloc.c
+		ping/libft/src/mem/ft_memccpy.c
+		ping/libft/src/mem/ft_memchr.c
+		ping/libft/src/mem/ft_memcmp.c
+		ping/libft/src/mem/ft_memcpy.c
+		ping/libft/src/mem/ft_memdel.c
+		ping/libft/src/mem/ft_memmove.c
+		ping/libft/src/mem/ft_memset.c
+		ping/libft/src/net/ft_checksum.c
+		ping/libft/src/net/ft_domtoip.c
+		ping/libft/src/net/ft_gethstaddr.c
+		ping/libft/src/net/ft_getifaceaddr.c
+		ping/libft/src/net/ft_isaddrset.c
+		ping/libft/src/net/ft_makerawsock.c
+		ping/libft/src/net/ft_packet_header.c
+		ping/libft/src/net/ft_setsock_timeout.c
+		ping/libft/src/net/ft_sockoptraw.c
+		ping/libft/src/num/ft_getpercent.c
+		ping/libft/src/num/ft_numlen.c
+		ping/libft/src/num/ft_timediff.c
+		ping/libft/src/put/ft_errorexit.c
+		ping/libft/src/put/ft_hexdump.c
+		ping/libft/src/put/ft_putchar.c
+		ping/libft/src/put/ft_putchar_fd.c
+		ping/libft/src/put/ft_putclst.c
+		ping/libft/src/put/ft_putendl.c
+		ping/libft/src/put/ft_putendl_fd.c
+		ping/libft/src/put/ft_puterror.c
+		ping/libft/src/put/ft_putnbr.c
+		ping/libft/src/put/ft_putnbr_fd.c
+		ping/libft/src/put/ft_putnlst.c
+		ping/libft/src/put/ft_putstr.c
+		ping/libft/src/put/ft_putstr_fd.c
+		ping/libft/src/put/ft_putstrrev.c
+		ping/libft/src/put/ft_puttbl.c
+		ping/libft/src/str/ft_cntbnespc.c
+		ping/libft/src/str/ft_cntbspc.c
+		ping/libft/src/str/ft_cnttotspc.c
+		ping/libft/src/str/ft_cntwrds.c
+		ping/libft/src/str/ft_dirjoin.c
+		ping/libft/src/str/ft_isstralnum.c
+		ping/libft/src/str/ft_isstralpha.c
+		ping/libft/src/str/ft_isstrascii.c
+		ping/libft/src/str/ft_isstrdigit.c
+		ping/libft/src/str/ft_isstrprint.c
+		ping/libft/src/str/ft_nxtwrdlen.c
+		ping/libft/src/str/ft_strcat.c
+		ping/libft/src/str/ft_strchr.c
+		ping/libft/src/str/ft_strclr.c
+		ping/libft/src/str/ft_strcmp.c
+		ping/libft/src/str/ft_strconcat.c
+		ping/libft/src/str/ft_strcpy.c
+		ping/libft/src/str/ft_strdel.c
+		ping/libft/src/str/ft_strdup.c
+		ping/libft/src/str/ft_strequ.c
+		ping/libft/src/str/ft_striter.c
+		ping/libft/src/str/ft_striteri.c
+		ping/libft/src/str/ft_strjoin.c
+		ping/libft/src/str/ft_strjoinn.c
+		ping/libft/src/str/ft_strlcat.c
+		ping/libft/src/str/ft_strlen.c
+		ping/libft/src/str/ft_strmap.c
+		ping/libft/src/str/ft_strmapi.c
+		ping/libft/src/str/ft_strncat.c
+		ping/libft/src/str/ft_strncmp.c
+		ping/libft/src/str/ft_strncpy.c
+		ping/libft/src/str/ft_strndup.c
+		ping/libft/src/str/ft_strnequ.c
+		ping/libft/src/str/ft_strnew.c
+		ping/libft/src/str/ft_strnstr.c
+		ping/libft/src/str/ft_strrchr.c
+		ping/libft/src/str/ft_strrev.c
+		ping/libft/src/str/ft_strsplit.c
+		ping/libft/src/str/ft_strstr.c
+		ping/libft/src/str/ft_strstrip.c
+		ping/libft/src/str/ft_strsub.c
+		ping/libft/src/str/ft_strtrim.c
+		ping/libft/src/str/ft_tolower.c
+		ping/libft/src/str/ft_toupper.c
+		ping/libft/src/tbl/ft_crafttbl.c
+		ping/libft/src/tbl/ft_getenvar.c
+		ping/libft/src/tbl/ft_itbllen.c
+		ping/libft/src/tbl/ft_tbladdl.c
+		ping/libft/src/tbl/ft_tbldel.c
+		ping/libft/src/tbl/ft_tbldup.c
+		ping/libft/src/tbl/ft_tbllen.c
+		ping/libft/src/tbl/ft_tblrepline.c
+		ping/libft/src/tbl/ft_tblrmline.c
+		ping/src/handle_response.c
+		ping/src/main.c
+		ping/src/ping.c
+		ping/src/recv_ping.c
+		ping/src/send_ping.c
+		ping/src/signal.c
 		src/check_packet.c
 		src/handle_response.c
+		src/main.c
 		src/send_recv_echo.c
 		src/set_addr_iface.c
 		src/set_port_ttl_probe.c
 		src/traceroute.c
-		src/useage.c
-		main.c)
+		src/useage.c)
+
+add_executable(traceroute ${SOURCE_FILES})

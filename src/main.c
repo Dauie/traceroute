@@ -59,7 +59,7 @@ static int			parse_args(t_mgr *mgr, int ac, char **av)
 			{
 				dprintf(STDERR_FILENO, "traceroute: cannot resolve"
 						" '%s': unknown host.\n", av[i]);
-				exit(FAILURE);
+				exit(EXIT_FAILURE);
 			}
 			ft_strcpy(mgr->domain, av[i]);
 			mgr->to.sin_addr.s_addr = addr.s_addr;
@@ -95,7 +95,7 @@ static void			create_sock(t_mgr *mgr)
 			(struct sockaddr *)&mgr->from, sizeof(mgr->from)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error bind().\n");
-		exit(FAILURE);
+		exit(EXIT_FAILURE);
 	}
 }
 

@@ -18,7 +18,7 @@ int						send_echo(t_mgr *mgr, uint8_t *pkt, size_t pktlen)
 			(struct sockaddr *)&mgr->to, sizeof(struct sockaddr)) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error sendto().\n");
-		exit(FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	return (SUCCESS);
 }
@@ -46,7 +46,7 @@ int						recv_echo(t_mgr *mgr, t_echopkt *msg,
 					(struct sockaddr *)&mgr->from, &socklen) < 0)
 		{
 			dprintf(STDERR_FILENO, "Error recvfrom().\n");
-			exit(FAILURE);
+			exit(EXIT_FAILURE);
 		}
 		gettimeofday(&msg->recvd, NULL);
 	}
